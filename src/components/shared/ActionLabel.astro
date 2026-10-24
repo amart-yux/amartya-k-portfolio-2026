@@ -1,0 +1,21 @@
+---
+/**
+ * Label text for a navigational control. Underlines on hover (or when a
+ * parent with the `group` class is hovered) and when `active`.
+ */
+interface Props {
+  /** `negative` underlines in red (used by "Close"). */
+  tone?: "accent" | "negative";
+  /** Filters use a slightly heavier 1.3px underline than other labels. */
+  weight?: "default" | "filter";
+  active?: boolean;
+  class?: string;
+}
+const { tone = "accent", weight = "default", active = false, class: className } = Astro.props;
+---
+
+<span
+  class:list={["type-body type-action text-foreground", className]}
+  data-tone={tone}
+  data-weight={weight}
+  data-active={active ? "true" : "false"}><slot /></span>

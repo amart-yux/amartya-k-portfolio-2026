@@ -1,0 +1,29 @@
+---
+import ContentImage from "@/components/shared/ContentImage.astro";
+import type { ImageSource } from "@/lib/content/types";
+
+/** Two-column photo grid on /about. `null` cells are intentional blanks. */
+interface Props {
+  cells: (ImageSource | null)[];
+}
+const { cells } = Astro.props;
+
+const EAGER_CELLS = 4;
+---
+
+<div class="grid w-full grid-cols-2 gap-4 tablet:w-auto tablet:flex-[1_0_0px]">
+  {
+    cells.map((image, index) =>
+      image ? (
+        <ContentImage
+          image={image}
+          sizes="(min-width: 1440px) 456px, (min-width: 810px) 32vw, 50vw"
+          priority={index < EAGER_CELLS}
+          class="h-auto w-full"
+        />
+      ) : (
+        <div aria-hidden="true" />
+      ),
+    )
+  }
+</div>

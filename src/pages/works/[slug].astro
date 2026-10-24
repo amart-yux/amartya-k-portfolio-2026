@@ -1,0 +1,22 @@
+---
+import Base from "@/layouts/Base.astro";
+import CloseLink from "@/components/shared/CloseLink.astro";
+import PageFrame from "@/components/shared/PageFrame.astro";
+import WorkDetails from "@/components/work/WorkDetails.astro";
+import WorkGallery from "@/components/work/WorkGallery.astro";
+import { getWork } from "@/lib/content/queries";
+
+const slug = decodeURIComponent(Astro.params.slug ?? "");
+const work = await getWork(slug);
+if (!work) return Astro.rewrite("/404");
+---
+
+<Base title={work.name}>
+  <PageFrame>
+    <CloseLink href="/" class="fixed right-3 top-3 z-10 tablet:right-4 tablet:top-4" />
+    <div class="flex w-full flex-col items-start gap-3 overflow-clip pt-6 tablet:flex-row tablet:justify-center tablet:gap-4 tablet:pt-0">
+      <WorkDetails work={work} />
+      <WorkGallery items={work.gallery} />
+    </div>
+  </PageFrame>
+</Base>

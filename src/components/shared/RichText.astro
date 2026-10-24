@@ -1,0 +1,65 @@
+---
+import type { RichText as RichTextContent, RichTextBlock } from "@/lib/content/types";
+
+/**
+ * Renders the paragraph-level Portable Text produced by Sanity's editor.
+ * - Empty paragraphs become blank lines (Framer renders these as empty <p>).
+ * - Link marks get the site link style via `.type-rich-text a`.
+ * - External links open in a new tab.
+ */
+interface Props {
+  content: RichTextContent;
+  class?: string;
+}
+const { content, class: className } = Astro.props;
+
+const EXTERNAL_HREF = /^(https?:)?\/\//;
+
+type Segment = { text: string; href?: string };
+
+function segments(block: RichTextBlock): Segment[] {
+  const links = new Map((block.markDefs ?? []).map((def) => [def._key, def.href]));
+  return block.children.map((span) => ({
+    text: span.text,
+    href: span.marks?.map((mark) => links.get(mark)).find((href) => typeof href === "string"),
+  }));
+}
+
+function isBlank(block: RichTextBlock): boolean {
+  return block.children.every((span) => span.text.trim() === "");
+}
+
+/** Split on newlines so "\n" inside a span renders as <br>. */
+function lines(text: string): string[] {
+  return text.split("\n");
+}
+---
+
+<div class:list={["type-rich-text flex flex-col", className]}>
+  {
+    content.map((block) =>
+      isBlank(block) ? (
+        <p class="type-body" aria-hidden="true">
+          <br />
+        </p>
+      ) : (
+        <p class="type-body text-foreground">
+          {segments(block).map(({ text, href }) =>
+            href ? (
+              <a href={href} target={EXTERNAL_HREF.test(href) ? "_blank" : undefined} rel={EXTERNAL_HREF.test(href) ? "noreferrer" : undefined}>
+                {text}
+              </a>
+            ) : (
+              lines(text).map((line, index) => (
+                <>
+                  {index > 0 ? <br /> : null}
+                  {line}
+                </>
+              ))
+            ),
+          )}
+        </p>
+      ),
+    )
+  }
+</div>

@@ -1,0 +1,9 @@
+---
+/** Grey label text ("Work:", "Filter:" …). Never shrinks inside a row. */
+interface Props {
+  class?: string;
+}
+const { class: className } = Astro.props;
+---
+
+<p class:list={["type-body shrink-0 text-muted-foreground", className]}><slot /></p>

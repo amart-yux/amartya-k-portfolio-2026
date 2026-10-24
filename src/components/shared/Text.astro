@@ -1,0 +1,9 @@
+---
+/** A paragraph in the site's one text style (14px / 1.2 / -0.02em). */
+interface Props {
+  class?: string;
+}
+const { class: className } = Astro.props;
+---
+
+<p class:list={["type-body text-foreground", className]}><slot /></p>

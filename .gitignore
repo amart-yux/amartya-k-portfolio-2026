@@ -1,0 +1,21 @@
+# v0 sandbox internal files
+__v0_runtime_loader.js
+__v0_devtools.tsx
+__v0_jsx-dev-runtime.ts
+.snowflake/
+.design-cache/
+.v0-trash/
+.vercel/
+
+# Environment variables and secrets
+.env
+.env*.local
+
+# Dependencies and build output
+node_modules
+dist/
+.astro/
+
+# Legacy Next.js cache (kept out of git)
+.next/
+.DS_Store

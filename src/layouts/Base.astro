@@ -1,0 +1,40 @@
+---
+import { getSiteSettings } from "@/lib/content/queries";
+import "@/styles/globals.css";
+
+/** Document shell. Site title and description come from Sanity "Site settings". */
+interface Props {
+  /** Page-specific title; shown as "{title} - {site title}". */
+  title?: string;
+  description?: string;
+}
+const { title, description } = Astro.props;
+
+const DEFAULT_SITE_TITLE = "Portfolio";
+const settings = await getSiteSettings();
+const siteTitle = settings.title ?? DEFAULT_SITE_TITLE;
+const pageTitle = title ? `${title} - ${siteTitle}` : siteTitle;
+const metaDescription = description ?? settings.description;
+---
+
+<!doctype html>
+<html lang="en" class="bg-background">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light" />
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-icon.png" />
+    <link rel="preload" href="/fonts/InterDisplay-Regular-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <title>{pageTitle}</title>
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:site_name" content={siteTitle} />
+    <meta property="og:type" content="website" />
+    {metaDescription ? <meta name="description" content={metaDescription} /> : null}
+    {metaDescription ? <meta property="og:description" content={metaDescription} /> : null}
+  </head>
+  <body class="font-sans antialiased">
+    <slot />
+  </body>
+</html>

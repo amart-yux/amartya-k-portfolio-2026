@@ -1,0 +1,28 @@
+---
+import ContentImage from "@/components/shared/ContentImage.astro";
+import ContentVideo from "@/components/shared/ContentVideo.astro";
+import type { MediaSource } from "@/lib/content/types";
+
+/** Work page gallery: 1470×854 frames in one column (6px gaps on phone, 16px from tablet up). */
+interface Props {
+  items: MediaSource[];
+}
+const { items } = Astro.props;
+
+const SIZES = "(min-width: 1440px) 941px, (min-width: 810px) 65vw, 100vw";
+const FRAME = "absolute inset-0 size-full object-cover object-center";
+---
+
+<div class="grid w-full grid-cols-1 gap-x-3 gap-y-1.5 tablet:w-auto tablet:flex-[1_0_0px] tablet:gap-4">
+  {
+    items.map((item, index) => (
+      <div class="relative aspect-[1470/854] w-full overflow-clip">
+        {item.kind === "video" ? (
+          <ContentVideo video={item} priority={index === 0} class={FRAME} />
+        ) : (
+          <ContentImage image={item} sizes={SIZES} priority={index === 0} class={FRAME} />
+        )}
+      </div>
+    ))
+  }
+</div>

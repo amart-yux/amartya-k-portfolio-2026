@@ -1,0 +1,11 @@
+---
+/** Every page: white canvas, 12px inset on phone, 16px from tablet up. */
+interface Props {
+  class?: string;
+}
+const { class: className } = Astro.props;
+---
+
+<main class:list={["relative flex min-h-screen flex-col items-center overflow-clip bg-background p-3 tablet:p-4", className]}>
+  <slot />
+</main>

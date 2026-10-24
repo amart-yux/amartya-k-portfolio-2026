@@ -1,0 +1,19 @@
+---
+import Base from "@/layouts/Base.astro";
+import AboutBio from "@/components/about/AboutBio.astro";
+import AboutGallery from "@/components/about/AboutGallery.astro";
+import PageFrame from "@/components/shared/PageFrame.astro";
+import { getAbout } from "@/lib/content/queries";
+
+const { bio, gallery } = await getAbout();
+---
+
+<Base title="About">
+  <PageFrame>
+    <AboutBio content={bio} />
+    <div class="flex w-full flex-col items-start gap-4 overflow-clip tablet:flex-row tablet:justify-center">
+      <div aria-hidden="true" class="h-[70vh] w-full shrink-0 tablet:h-auto tablet:w-[32.6%]"></div>
+      <AboutGallery cells={gallery} />
+    </div>
+  </PageFrame>
+</Base>

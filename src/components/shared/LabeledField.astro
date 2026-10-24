@@ -1,0 +1,18 @@
+---
+import MutedText from "./MutedText.astro";
+
+/**
+ * "Label:  value" row used everywhere on the site (Selected work:, Filter:,
+ * Work:, Category: …). The label keeps its width; the value column flexes.
+ */
+interface Props {
+  label: string;
+  class?: string;
+}
+const { label, class: className } = Astro.props;
+---
+
+<div class:list={["flex w-full items-start gap-1 overflow-clip", className]}>
+  <MutedText>{label}</MutedText>
+  <div class="flex flex-[1_0_0px] flex-col"><slot /></div>
+</div>

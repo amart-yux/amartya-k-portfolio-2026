@@ -1,0 +1,33 @@
+---
+import Base from "@/layouts/Base.astro";
+import Intro from "@/components/home/Intro.astro";
+import { HomeInteractive } from "@/components/home/HomeInteractive";
+import PageFrame from "@/components/shared/PageFrame.astro";
+import { getCategories, getHome, getSubworks, getWorks } from "@/lib/content/queries";
+
+/**
+ * Home: a fixed-height canvas (no page scroll) with three equal columns —
+ * intro | empty | work list + filter — and the Subworks strip pinned to the
+ * bottom. The hover preview floats above the middle column.
+ */
+const [home, works, subworks, categories] = await Promise.all([getHome(), getWorks(), getSubworks(), getCategories()]);
+
+const requested = Astro.url.searchParams.get("category");
+const initialCategory = categories.some((category) => category.slug === requested) ? (requested ?? undefined) : undefined;
+
+const homeWorks = works.map(({ slug, name, preview }) => ({ slug, name, preview }));
+---
+
+<Base>
+  <PageFrame class="type-scale-compact gap-3 tablet:h-screen tablet:gap-4">
+    <HomeInteractive
+      client:load
+      works={homeWorks}
+      subworks={subworks}
+      categories={categories}
+      initialCategory={initialCategory}
+    >
+      <Intro slot="intro" content={home.intro} />
+    </HomeInteractive>
+  </PageFrame>
+</Base>

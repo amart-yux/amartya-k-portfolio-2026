@@ -1,0 +1,3637 @@
+{
+  "version": "1",
+  "meta": {
+    "name": "Portfolio",
+    "description": "Content model and initial content for the portfolio site.",
+    "author": "Amartya Katge"
+  },
+  "settings": {
+    "title": "Amartya Katge",
+    "tagline": "Amartya Katge — designer and Creative Director at Not On Sunday.",
+    "seo": {
+      "defaultTitle": "Amartya Katge",
+      "defaultDescription": "Amartya Katge — designer and Creative Director at Not On Sunday."
+    }
+  },
+  "collections": [
+    {
+      "slug": "works",
+      "label": "Works",
+      "labelSingular": "Work",
+      "description": "Portfolio projects. Each entry is a page at /works/{slug}.",
+      "icon": "briefcase",
+      "sortOrder": 1,
+      "supports": [
+        "drafts",
+        "revisions",
+        "preview",
+        "search"
+      ],
+      "urlPattern": "/works/{slug}",
+      "titleField": "title",
+      "admin": {
+        "listColumns": [
+          "categories",
+          "period"
+        ]
+      },
+      "fields": [
+        {
+          "slug": "title",
+          "label": "Title",
+          "type": "string",
+          "required": true,
+          "searchable": true
+        },
+        {
+          "slug": "categories",
+          "label": "Categories",
+          "type": "multiSelect",
+          "required": true,
+          "validation": {
+            "options": [
+              "identity",
+              "media",
+              "packaging",
+              "product",
+              "space",
+              "web"
+            ]
+          }
+        },
+        {
+          "slug": "worked_with",
+          "label": "Worked with",
+          "type": "string"
+        },
+        {
+          "slug": "period",
+          "label": "When",
+          "type": "string",
+          "options": {
+            "helpText": "e.g. 2025 - Completed"
+          }
+        },
+        {
+          "slug": "live_url",
+          "label": "Live project URL",
+          "type": "url"
+        },
+        {
+          "slug": "about",
+          "label": "About",
+          "type": "portableText",
+          "searchable": true
+        },
+        {
+          "slug": "keywords",
+          "label": "Keywords",
+          "type": "text",
+          "searchable": true
+        },
+        {
+          "slug": "preview",
+          "label": "Hover preview",
+          "type": "image",
+          "options": {
+            "helpText": "Shown in the centre of the home page while this work is hovered."
+          }
+        },
+        {
+          "slug": "gallery",
+          "label": "Gallery",
+          "type": "portableText",
+          "options": {
+            "helpText": "Insert images and videos only (no text). They render full-width, in this order, on the work page."
+          }
+        },
+        {
+          "slug": "thumbnails",
+          "label": "Home strip tiles",
+          "type": "repeater",
+          "options": {
+            "helpText": "80px tiles for this work in the strip at the bottom of the home page, one per category it should appear under. Leave the image empty for a hatched placeholder tile."
+          },
+          "validation": {
+            "subFields": [
+              {
+                "slug": "image",
+                "label": "Image",
+                "type": "image"
+              },
+              {
+                "slug": "category",
+                "label": "Category",
+                "type": "select",
+                "required": true,
+                "options": [
+                  "identity",
+                  "media",
+                  "packaging",
+                  "product",
+                  "space",
+                  "web"
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "slug": "about",
+      "label": "About page",
+      "labelSingular": "About page",
+      "icon": "user",
+      "sortOrder": 2,
+      "routable": false,
+      "supports": [
+        "drafts",
+        "revisions"
+      ],
+      "titleField": "title",
+      "fields": [
+        {
+          "slug": "title",
+          "label": "Title",
+          "type": "string",
+          "required": true
+        },
+        {
+          "slug": "bio",
+          "label": "Biography",
+          "type": "portableText",
+          "searchable": true
+        },
+        {
+          "slug": "gallery",
+          "label": "Photo gallery",
+          "type": "repeater",
+          "options": {
+            "helpText": "Two-column grid. Turn on “Blank cell” to leave a gap, as in the original layout."
+          },
+          "validation": {
+            "subFields": [
+              {
+                "slug": "photo",
+                "label": "Photo",
+                "type": "image"
+              },
+              {
+                "slug": "blank",
+                "label": "Blank cell",
+                "type": "boolean"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "slug": "home",
+      "label": "Home page",
+      "labelSingular": "Home page",
+      "icon": "home",
+      "sortOrder": 3,
+      "routable": false,
+      "supports": [
+        "drafts",
+        "revisions"
+      ],
+      "titleField": "title",
+      "fields": [
+        {
+          "slug": "title",
+          "label": "Title",
+          "type": "string",
+          "required": true
+        },
+        {
+          "slug": "intro",
+          "label": "Introduction",
+          "type": "portableText",
+          "searchable": true
+        },
+        {
+          "slug": "contact_email",
+          "label": "Contact email",
+          "type": "string"
+        }
+      ]
+    }
+  ],
+  "content": {
+    "works": [
+      {
+        "id": "work:bpm",
+        "slug": "bpm",
+        "status": "published",
+        "data": {
+          "title": "BPM",
+          "categories": [
+            "web"
+          ],
+          "worked_with": "Not On Sunday",
+          "period": "2025 - Completed",
+          "live_url": "https://www.bpmorg.com",
+          "about": [],
+          "keywords": "",
+          "preview": {
+            "$media": {
+              "url": "https://framerusercontent.com/images/GIdEWHRAxFx5t6Cj6UddupewS8w.gif",
+              "alt": "BPM preview",
+              "filename": "GIdEWHRAxFx5t6Cj6UddupewS8w.gif"
+            }
+          },
+          "gallery": [
+            {
+              "_type": "image",
+              "_key": "9ba2be3fdd50",
+              "asset": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/59KYzdTO2FtwApcyJRmcqlCBduA.gif",
+                  "alt": "",
+                  "filename": "59KYzdTO2FtwApcyJRmcqlCBduA.gif"
+                }
+              },
+              "alt": "",
+              "width": 1470,
+              "height": 854
+            },
+            {
+              "_type": "image",
+              "_key": "4cfd633fbe87",
+              "asset": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/IxxlUHsUsmhvqdIegPlSMXigXY.jpg",
+                  "alt": "",
+                  "filename": "IxxlUHsUsmhvqdIegPlSMXigXY.jpg"
+                }
+              },
+              "alt": "",
+              "width": 5880,
+              "height": 3416
+            },
+            {
+              "_type": "image",
+              "_key": "eedff72f3aad",
+              "asset": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/Wtkr6AgsVY8XoTYSbcMxpp1bI9o.jpg",
+                  "alt": "",
+                  "filename": "Wtkr6AgsVY8XoTYSbcMxpp1bI9o.jpg"
+                }
+              },
+              "alt": "",
+              "width": 5880,
+              "height": 3416
+            },
+            {
+              "_type": "image",
+              "_key": "1ad75a29bec8",
+              "asset": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/GIdEWHRAxFx5t6Cj6UddupewS8w.gif",
+                  "alt": "",
+                  "filename": "GIdEWHRAxFx5t6Cj6UddupewS8w.gif"
+                }
+              },
+              "alt": "",
+              "width": 1470,
+              "height": 854
+            },
+            {
+              "_type": "image",
+              "_key": "9d1d8ad7263e",
+              "asset": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/sijv8VpjfKvfUIzXXDAFOtSsZVI.jpg",
+                  "alt": "",
+                  "filename": "sijv8VpjfKvfUIzXXDAFOtSsZVI.jpg"
+                }
+              },
+              "alt": "",
+              "width": 5880,
+              "height": 3416
+            }
+          ],
+          "thumbnails": [
+            {
+              "image": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/59KYzdTO2FtwApcyJRmcqlCBduA.gif",
+                  "alt": "BPM thumbnail",
+                  "filename": "59KYzdTO2FtwApcyJRmcqlCBduA.gif"
+                }
+              },
+              "category": "web"
+            }
+          ]
+        }
+      },
+      {
+        "id": "work:bukito",
+        "slug": "bukito",
+        "status": "published",
+        "data": {
+          "title": "Bukito",
+          "categories": [
+            "identity"
+          ],
+          "worked_with": "Not On Sunday",
+          "period": "2025 - Completed",
+          "live_url": "https://www.notonsunday.in/projects/branding/bukito",
+          "about": [],
+          "keywords": "",
+          "preview": {
+            "$media": {
+              "url": "https://framerusercontent.com/images/I7hFb32KRH87OqNDRF5Lq99s.gif",
+              "alt": "Bukito preview",
+              "filename": "I7hFb32KRH87OqNDRF5Lq99s.gif"
+            }
+          },
+          "gallery": [
+            {
+              "_type": "image",
+              "_key": "23b9b1cd00dd",
+              "asset": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/5iyGYuxQFhaHetvvdv17ryHz1Y.jpg",
+                  "alt": "",
+                  "filename": "5iyGYuxQFhaHetvvdv17ryHz1Y.jpg"
+                }
+              },
+              "alt": "",
+              "width": 5880,
+              "height": 3416
+            },
+            {
+              "_type": "image",
+              "_key": "230a8eab849b",
+              "asset": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/K4fabSCxe8gQAgiG3XC6khSc3CQ.gif",
+                  "alt": "",
+                  "filename": "K4fabSCxe8gQAgiG3XC6khSc3CQ.gif"
+                }
+              },
+              "alt": "",
+              "width": 1470,
+              "height": 560
+            },
+            {
+              "_type": "image",
+              "_key": "cff474a77f19",
+              "asset": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/0bAv8xMa9BYgnWqh6m9ilVUzj5A.gif",
+                  "alt": "",
+                  "filename": "0bAv8xMa9BYgnWqh6m9ilVUzj5A.gif"
+                }
+              },
+              "alt": "",
+              "width": 2092,
+              "height": 796
+            },
+            {
+              "_type": "image",
+              "_key": "01d3547371b2",
+              "asset": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/fQElaWdvedCmOn8xIviymQ6oBWY.gif",
+                  "alt": "",
+                  "filename": "fQElaWdvedCmOn8xIviymQ6oBWY.gif"
+                }
+              },
+              "alt": "",
+              "width": 1470,
+              "height": 1166
+            },
+            {
+              "_type": "image",
+              "_key": "e77e363ce27b",
+              "asset": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/Xrdj45H4Q83amuWjQIe69itz0lU.png",
+                  "alt": "",
+                  "filename": "Xrdj45H4Q83amuWjQIe69itz0lU.png"
+                }
+              },
+              "alt": "",
+              "width": 13009,
+              "height": 7403
+            },
+            {
+              "_type": "image",
+              "_key": "d0208542567a",
+              "asset": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/2HHFoJDB9IdONieaCnJtzvvk3ik.gif",
+                  "alt": "",
+                  "filename": "2HHFoJDB9IdONieaCnJtzvvk3ik.gif"
+                }
+              },
+              "alt": "",
+              "width": 1470,
+              "height": 854
+            },
+            {
+              "_type": "image",
+              "_key": "1c51ac7a55ac",
+              "asset": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/BqmUqyHBhshMvcMpD3bSqcr5RE.gif",
+                  "alt": "",
+                  "filename": "BqmUqyHBhshMvcMpD3bSqcr5RE.gif"
+                }
+              },
+              "alt": "",
+              "width": 1470,
+              "height": 1166
+            },
+            {
+              "_type": "image",
+              "_key": "f455866c363f",
+              "asset": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/qYTXG8s0RlfBWz9NHesm4gxVc.jpg",
+                  "alt": "",
+                  "filename": "qYTXG8s0RlfBWz9NHesm4gxVc.jpg"
+                }
+              },
+              "alt": "",
+              "width": 5880,
+              "height": 3416
+            }
+          ],
+          "thumbnails": [
+            {
+              "image": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/2HHFoJDB9IdONieaCnJtzvvk3ik.gif",
+                  "alt": "Bukito thumbnail",
+                  "filename": "2HHFoJDB9IdONieaCnJtzvvk3ik.gif"
+                }
+              },
+              "category": "identity"
+            }
+          ]
+        }
+      },
+      {
+        "id": "work:cbk",
+        "slug": "cbk",
+        "status": "published",
+        "data": {
+          "title": "CBK",
+          "categories": [
+            "web"
+          ],
+          "worked_with": "Not On Sunday",
+          "period": "2025 - Completed",
+          "live_url": "https://cbkindia.com/",
+          "about": [],
+          "keywords": "",
+          "preview": {
+            "$media": {
+              "url": "https://framerusercontent.com/images/6Y1kIjYFA4hvIsmcbtaCfmUl8g.gif",
+              "alt": "CBK preview",
+              "filename": "6Y1kIjYFA4hvIsmcbtaCfmUl8g.gif"
+            }
+          },
+          "gallery": [
+            {
+              "_type": "image",
+              "_key": "e71fab0e44aa",
+              "asset": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/3E5wkVHZWmmHvI0UFICOegJtGGM.gif",
+                  "alt": "",
+                  "filename": "3E5wkVHZWmmHvI0UFICOegJtGGM.gif"
+                }
+              },
+              "alt": "",
+              "width": 1470,
+              "height": 854
+            },
+            {
+              "_type": "image",
+              "_key": "f06eb29b9bce",
+              "asset": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/NisLrRA87xL8jSy0BxcVAj19BA.jpg",
+                  "alt": "",
+                  "filename": "NisLrRA87xL8jSy0BxcVAj19BA.jpg"
+                }
+              },
+              "alt": "",
+              "width": 5880,
+              "height": 3416
+            },
+            {
+              "_type": "image",
+              "_key": "04b1abdecb83",
+              "asset": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/PBO0Oe1D1fdDlUsGxmgC2Fj0Fk.gif",
+                  "alt": "",
+                  "filename": "PBO0Oe1D1fdDlUsGxmgC2Fj0Fk.gif"
+                }
+              },
+              "alt": "",
+              "width": 1470,
+              "height": 1166
+            },
+            {
+              "_type": "image",
+              "_key": "60d85618a374",
+              "asset": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/TP2uLi1zpBfC9vfLAd50Pu8jnc.jpg",
+                  "alt": "",
+                  "filename": "TP2uLi1zpBfC9vfLAd50Pu8jnc.jpg"
+                }
+              },
+              "alt": "",
+              "width": 5880,
+              "height": 3416
+            },
+            {
+              "_type": "image",
+              "_key": "083eeee3f594",
+              "asset": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/MyEfR66J5S8AN5e8ldDvgPb82GY.jpg",
+                  "alt": "",
+                  "filename": "MyEfR66J5S8AN5e8ldDvgPb82GY.jpg"
+                }
+              },
+              "alt": "",
+              "width": 5880,
+              "height": 3416
+            },
+            {
+              "_type": "image",
+              "_key": "5c3380d2848c",
+              "asset": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/lT1tz6mQYlHgvvl1qx4Mu9Q3hBk.jpg",
+                  "alt": "",
+                  "filename": "lT1tz6mQYlHgvvl1qx4Mu9Q3hBk.jpg"
+                }
+              },
+              "alt": "",
+              "width": 5880,
+              "height": 3416
+            },
+            {
+              "_type": "image",
+              "_key": "fe269853ef43",
+              "asset": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/XT7jv7HSPlHe4NYAefwlY1TuJrg.jpg",
+                  "alt": "",
+                  "filename": "XT7jv7HSPlHe4NYAefwlY1TuJrg.jpg"
+                }
+              },
+              "alt": "",
+              "width": 5880,
+              "height": 3416
+            },
+            {
+              "_type": "image",
+              "_key": "3f441e4ffd47",
+              "asset": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/ZTgnAl35odNs8p0GvKZuLcscLvw.jpg",
+                  "alt": "",
+                  "filename": "ZTgnAl35odNs8p0GvKZuLcscLvw.jpg"
+                }
+              },
+              "alt": "",
+              "width": 5880,
+              "height": 1180
+            },
+            {
+              "_type": "image",
+              "_key": "ae5e00a4ec38",
+              "asset": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/oVpA3IVtdOwrv2syqcgBexf7Vi0.jpg",
+                  "alt": "",
+                  "filename": "oVpA3IVtdOwrv2syqcgBexf7Vi0.jpg"
+                }
+              },
+              "alt": "",
+              "width": 5880,
+              "height": 3416
+            }
+          ],
+          "thumbnails": [
+            {
+              "image": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/3E5wkVHZWmmHvI0UFICOegJtGGM.gif",
+                  "alt": "CBK thumbnail",
+                  "filename": "3E5wkVHZWmmHvI0UFICOegJtGGM.gif"
+                }
+              },
+              "category": "web"
+            }
+          ]
+        }
+      },
+      {
+        "id": "work:chhabi",
+        "slug": "chhabi",
+        "status": "published",
+        "data": {
+          "title": "Chhabi",
+          "categories": [
+            "web"
+          ],
+          "worked_with": "Not On Sunday",
+          "period": "2025 - Completed",
+          "live_url": null,
+          "about": [],
+          "keywords": "",
+          "preview": {
+            "$media": {
+              "url": "https://framerusercontent.com/images/Xoi0Nbyh5tcphtpZzfa7SKcmYQ.gif",
+              "alt": "Chhabi preview",
+              "filename": "Xoi0Nbyh5tcphtpZzfa7SKcmYQ.gif"
+            }
+          },
+          "gallery": [
+            {
+              "_type": "image",
+              "_key": "1b85bb9a489f",
+              "asset": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/DxBFQTGIARkCSREbCrZRdSJDhDo.gif",
+                  "alt": "",
+                  "filename": "DxBFQTGIARkCSREbCrZRdSJDhDo.gif"
+                }
+              },
+              "alt": "",
+              "width": 1470,
+              "height": 854
+            },
+            {
+              "_type": "image",
+              "_key": "1ac0a84d3797",
+              "asset": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/UeB5oYqWLQY3kvR3XdBkkeNW0c.jpg",
+                  "alt": "",
+                  "filename": "UeB5oYqWLQY3kvR3XdBkkeNW0c.jpg"
+                }
+              },
+              "alt": "",
+              "width": 5880,
+              "height": 3416
+            },
+            {
+              "_type": "image",
+              "_key": "b36586dc9022",
+              "asset": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/XgmK4cncNEPM6oJjI1o07tDbnGM.jpg",
+                  "alt": "",
+                  "filename": "XgmK4cncNEPM6oJjI1o07tDbnGM.jpg"
+                }
+              },
+              "alt": "",
+              "width": 5880,
+              "height": 3416
+            },
+            {
+              "_type": "image",
+              "_key": "fa4f348016c5",
+              "asset": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/vay8RJ8jPjMONJXiXcCvdj1xc.jpg",
+                  "alt": "",
+                  "filename": "vay8RJ8jPjMONJXiXcCvdj1xc.jpg"
+                }
+              },
+              "alt": "",
+              "width": 5880,
+              "height": 3416
+            },
+            {
+              "_type": "image",
+              "_key": "5db286809708",
+              "asset": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/Ak7Uw3y58xtQhtZP4WfnUtxtc4I.gif",
+                  "alt": "",
+                  "filename": "Ak7Uw3y58xtQhtZP4WfnUtxtc4I.gif"
+                }
+              },
+              "alt": "",
+              "width": 1470,
+              "height": 1166
+            },
+            {
+              "_type": "image",
+              "_key": "93a9f22741a9",
+              "asset": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/Lo8BVhBXuxeaYYM7q8xQFI0LI0.jpg",
+                  "alt": "",
+                  "filename": "Lo8BVhBXuxeaYYM7q8xQFI0LI0.jpg"
+                }
+              },
+              "alt": "",
+              "width": 5880,
+              "height": 3416
+            },
+            {
+              "_type": "image",
+              "_key": "eb9ac757e06c",
+              "asset": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/LW72wkiVzq6uTIMs9TwJPpHUE.jpg",
+                  "alt": "",
+                  "filename": "LW72wkiVzq6uTIMs9TwJPpHUE.jpg"
+                }
+              },
+              "alt": "",
+              "width": 5880,
+              "height": 3416
+            },
+            {
+              "_type": "image",
+              "_key": "cd357d96150b",
+              "asset": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/vPsP0n6MLHUroY0NZvwnjCk1xWA.jpg",
+                  "alt": "",
+                  "filename": "vPsP0n6MLHUroY0NZvwnjCk1xWA.jpg"
+                }
+              },
+              "alt": "",
+              "width": 5880,
+              "height": 1256
+            },
+            {
+              "_type": "image",
+              "_key": "9df39430ad5b",
+              "asset": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/7tDZ9T07wUckl97OI4CJP5zy660.jpg",
+                  "alt": "",
+                  "filename": "7tDZ9T07wUckl97OI4CJP5zy660.jpg"
+                }
+              },
+              "alt": "",
+              "width": 5880,
+              "height": 3416
+            },
+            {
+              "_type": "image",
+              "_key": "653ec48fc36b",
+              "asset": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/mA5NV8PomRkOPxHxi4Hdgm2fbk.jpg",
+                  "alt": "",
+                  "filename": "mA5NV8PomRkOPxHxi4Hdgm2fbk.jpg"
+                }
+              },
+              "alt": "",
+              "width": 5880,
+              "height": 3416
+            }
+          ],
+          "thumbnails": [
+            {
+              "image": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/DxBFQTGIARkCSREbCrZRdSJDhDo.gif",
+                  "alt": "Chhabi thumbnail",
+                  "filename": "DxBFQTGIARkCSREbCrZRdSJDhDo.gif"
+                }
+              },
+              "category": "web"
+            }
+          ]
+        }
+      },
+      {
+        "id": "work:effotel",
+        "slug": "effotel",
+        "status": "published",
+        "data": {
+          "title": "Effotel",
+          "categories": [
+            "media"
+          ],
+          "worked_with": "Not On Sunday",
+          "period": "2026 - Completed",
+          "live_url": null,
+          "about": [],
+          "keywords": "",
+          "preview": null,
+          "gallery": [],
+          "thumbnails": [
+            {
+              "image": null,
+              "category": "media"
+            }
+          ]
+        }
+      },
+      {
+        "id": "work:hypothesis",
+        "slug": "hypothesis",
+        "status": "published",
+        "data": {
+          "title": "Hypothesis",
+          "categories": [
+            "identity",
+            "media",
+            "web",
+            "space"
+          ],
+          "worked_with": "Not On Sunday",
+          "period": "2025 - Completed",
+          "live_url": null,
+          "about": [],
+          "keywords": "",
+          "preview": null,
+          "gallery": [],
+          "thumbnails": [
+            {
+              "image": null,
+              "category": "identity"
+            },
+            {
+              "image": null,
+              "category": "media"
+            },
+            {
+              "image": null,
+              "category": "web"
+            },
+            {
+              "image": null,
+              "category": "space"
+            }
+          ]
+        }
+      },
+      {
+        "id": "work:khemraj",
+        "slug": "khemraj",
+        "status": "published",
+        "data": {
+          "title": "Khemraj",
+          "categories": [
+            "packaging"
+          ],
+          "worked_with": "Not On Sunday",
+          "period": "2025 - Completed",
+          "live_url": null,
+          "about": [],
+          "keywords": "",
+          "preview": {
+            "$media": {
+              "url": "https://framerusercontent.com/images/00BreNwihKleNIDlfjtVAOVdb4.gif",
+              "alt": "Khemraj preview",
+              "filename": "00BreNwihKleNIDlfjtVAOVdb4.gif"
+            }
+          },
+          "gallery": [
+            {
+              "_type": "image",
+              "_key": "5ba60e735c9d",
+              "asset": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/FBkg6g8DA1OihF52Lyyb7gB2p0.webp",
+                  "alt": "",
+                  "filename": "FBkg6g8DA1OihF52Lyyb7gB2p0.webp"
+                }
+              },
+              "alt": "",
+              "width": 3309,
+              "height": 2208
+            },
+            {
+              "_type": "image",
+              "_key": "1f69f51ad71e",
+              "asset": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/Kt5g7LU4EyhS39goa53ydUeK7A.gif",
+                  "alt": "",
+                  "filename": "Kt5g7LU4EyhS39goa53ydUeK7A.gif"
+                }
+              },
+              "alt": "",
+              "width": 1470,
+              "height": 854
+            },
+            {
+              "_type": "image",
+              "_key": "f77aaee3f510",
+              "asset": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/4Ocins0Szk04rGSMnbSlJHEtsw.jpg",
+                  "alt": "",
+                  "filename": "4Ocins0Szk04rGSMnbSlJHEtsw.jpg"
+                }
+              },
+              "alt": "",
+              "width": 5880,
+              "height": 3416
+            },
+            {
+              "_type": "image",
+              "_key": "c2900f31752e",
+              "asset": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/S8LW9y96tWTDB2Donnz4RQDhtA.gif",
+                  "alt": "",
+                  "filename": "S8LW9y96tWTDB2Donnz4RQDhtA.gif"
+                }
+              },
+              "alt": "",
+              "width": 1470,
+              "height": 854
+            },
+            {
+              "_type": "image",
+              "_key": "f0d98d8d01b7",
+              "asset": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/3G0k9WlVOKxPNpPhlwE2QL0m48.gif",
+                  "alt": "",
+                  "filename": "3G0k9WlVOKxPNpPhlwE2QL0m48.gif"
+                }
+              },
+              "alt": "",
+              "width": 1470,
+              "height": 854
+            }
+          ],
+          "thumbnails": [
+            {
+              "image": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/Kt5g7LU4EyhS39goa53ydUeK7A.gif",
+                  "alt": "Khemraj thumbnail",
+                  "filename": "Kt5g7LU4EyhS39goa53ydUeK7A.gif"
+                }
+              },
+              "category": "packaging"
+            }
+          ]
+        }
+      },
+      {
+        "id": "work:not-on-sunday",
+        "slug": "not-on-sunday",
+        "status": "published",
+        "data": {
+          "title": "Not On Sunday",
+          "categories": [
+            "identity",
+            "media",
+            "web"
+          ],
+          "worked_with": "Not On Sunday",
+          "period": "2026 - Completed",
+          "live_url": null,
+          "about": [],
+          "keywords": "",
+          "preview": null,
+          "gallery": [],
+          "thumbnails": [
+            {
+              "image": null,
+              "category": "identity"
+            },
+            {
+              "image": null,
+              "category": "media"
+            },
+            {
+              "image": null,
+              "category": "web"
+            }
+          ]
+        }
+      },
+      {
+        "id": "work:nufyt",
+        "slug": "nufyt",
+        "status": "published",
+        "data": {
+          "title": "Nufyt",
+          "categories": [
+            "media"
+          ],
+          "worked_with": "Not On Sunday",
+          "period": "2026 - Completed",
+          "live_url": null,
+          "about": [],
+          "keywords": "",
+          "preview": null,
+          "gallery": [],
+          "thumbnails": [
+            {
+              "image": null,
+              "category": "media"
+            }
+          ]
+        }
+      },
+      {
+        "id": "work:pathpulse.ai",
+        "slug": "pathpulse.ai",
+        "status": "published",
+        "data": {
+          "title": "Pathpulse.ai",
+          "categories": [
+            "product"
+          ],
+          "worked_with": "Freelance",
+          "period": "2025 - Completed",
+          "live_url": null,
+          "about": [
+            {
+              "_type": "block",
+              "_key": "54c93c517ce3",
+              "style": "normal",
+              "markDefs": [
+                {
+                  "_key": "426a466e073e",
+                  "_type": "link",
+                  "href": "http://pathpulse.ai/"
+                }
+              ],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "5249cfdffbc4",
+                  "text": "Cities lose $1 trillion a year to traffic congestion. ",
+                  "marks": []
+                },
+                {
+                  "_type": "span",
+                  "_key": "6ee1edbbe074",
+                  "text": "PathPulse.ai",
+                  "marks": [
+                    "426a466e073e"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "_key": "dc7aaa47ee26",
+                  "text": " is building the infrastructure layer to change that — a decentralised mobility intelligence network where every driver with a smartphone becomes a live data node. Their Scout app captures 60+ types of road conditions via computer vision, turning crowdsourced driving footage into structured intelligence for governments, mapping platforms, and logistics operators. The platform sits at the intersection of big data, computer vision, and smart city infrastructure — backed by $900K in pre-seed funding and already live in South Africa with 35,000+ registered contributors. \n\nI designed the client-side dashboard that makes all of that data readable — giving government officials and urban planners a clear, actionable view of what's happening across their regions.",
+                  "marks": []
+                }
+              ]
+            }
+          ],
+          "keywords": "AI, GovTech, IoT, Big Data, B2B SaaS, Decentralised Network, Client-side Analytics Data, Dashboard",
+          "preview": null,
+          "gallery": [
+            {
+              "_type": "image",
+              "_key": "46be5dba73dc",
+              "asset": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/yIZjPT7yYy0wtloU3K0uAVX6g.jpg",
+                  "alt": "",
+                  "filename": "yIZjPT7yYy0wtloU3K0uAVX6g.jpg"
+                }
+              },
+              "alt": "",
+              "width": 2560,
+              "height": 1708
+            },
+            {
+              "_type": "image",
+              "_key": "fd895ad9cc9a",
+              "asset": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/Qc1nM4SCotCxKWSHaH38FDHTlRI.jpg",
+                  "alt": "",
+                  "filename": "Qc1nM4SCotCxKWSHaH38FDHTlRI.jpg"
+                }
+              },
+              "alt": "",
+              "width": 2560,
+              "height": 1708
+            },
+            {
+              "_type": "image",
+              "_key": "8fd9f2e89dbc",
+              "asset": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/dVM9wWrPXHO07Tm1DfNxR0ONEo.jpg",
+                  "alt": "",
+                  "filename": "dVM9wWrPXHO07Tm1DfNxR0ONEo.jpg"
+                }
+              },
+              "alt": "",
+              "width": 2560,
+              "height": 1708
+            },
+            {
+              "_type": "image",
+              "_key": "f02948ec734c",
+              "asset": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/FjgTDpYd9EuCTCNsooYzKz3FSqA.jpg",
+                  "alt": "",
+                  "filename": "FjgTDpYd9EuCTCNsooYzKz3FSqA.jpg"
+                }
+              },
+              "alt": "",
+              "width": 2560,
+              "height": 1708
+            },
+            {
+              "_type": "image",
+              "_key": "383d5fb8a51e",
+              "asset": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/uacYF713bX7xurH5gGW8LIG0BEk.jpg",
+                  "alt": "",
+                  "filename": "uacYF713bX7xurH5gGW8LIG0BEk.jpg"
+                }
+              },
+              "alt": "",
+              "width": 2560,
+              "height": 1708
+            },
+            {
+              "_type": "image",
+              "_key": "a651b2701adb",
+              "asset": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/UdYAzers8uK3LteP7mFMGaLkqc.jpg",
+                  "alt": "",
+                  "filename": "UdYAzers8uK3LteP7mFMGaLkqc.jpg"
+                }
+              },
+              "alt": "",
+              "width": 2560,
+              "height": 1708
+            },
+            {
+              "_type": "image",
+              "_key": "16e66ce6deda",
+              "asset": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/Kd1DzWLXPmOCpy4e5xr0Zi09PGw.jpg",
+                  "alt": "",
+                  "filename": "Kd1DzWLXPmOCpy4e5xr0Zi09PGw.jpg"
+                }
+              },
+              "alt": "",
+              "width": 2560,
+              "height": 1708
+            },
+            {
+              "_type": "image",
+              "_key": "a0d669780506",
+              "asset": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/8BGTHuxKJ2wUNpKJHznovuVq4.jpg",
+                  "alt": "",
+                  "filename": "8BGTHuxKJ2wUNpKJHznovuVq4.jpg"
+                }
+              },
+              "alt": "",
+              "width": 2560,
+              "height": 1708
+            },
+            {
+              "_type": "image",
+              "_key": "5066921b33d9",
+              "asset": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/XDHH9MDBAfbwFXzrd5RvJQxBqU.jpg",
+                  "alt": "",
+                  "filename": "XDHH9MDBAfbwFXzrd5RvJQxBqU.jpg"
+                }
+              },
+              "alt": "",
+              "width": 2560,
+              "height": 1708
+            },
+            {
+              "_type": "image",
+              "_key": "e874e67be8cc",
+              "asset": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/lqz6EfEv9KWaQ4czb8AKDCcQSB8.jpg",
+                  "alt": "",
+                  "filename": "lqz6EfEv9KWaQ4czb8AKDCcQSB8.jpg"
+                }
+              },
+              "alt": "",
+              "width": 2560,
+              "height": 1708
+            },
+            {
+              "_type": "image",
+              "_key": "77e3db94635e",
+              "asset": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/WDy1obEXlMWh72HST8dwzGyULrI.jpg",
+                  "alt": "",
+                  "filename": "WDy1obEXlMWh72HST8dwzGyULrI.jpg"
+                }
+              },
+              "alt": "",
+              "width": 2560,
+              "height": 1708
+            }
+          ],
+          "thumbnails": [
+            {
+              "image": null,
+              "category": "product"
+            }
+          ]
+        }
+      },
+      {
+        "id": "work:patty-press",
+        "slug": "patty-press",
+        "status": "published",
+        "data": {
+          "title": "Patty Press",
+          "categories": [
+            "identity"
+          ],
+          "worked_with": "Not On Sunday",
+          "period": "2025 - Completed",
+          "live_url": null,
+          "about": [],
+          "keywords": "",
+          "preview": null,
+          "gallery": [],
+          "thumbnails": [
+            {
+              "image": null,
+              "category": "identity"
+            }
+          ]
+        }
+      },
+      {
+        "id": "work:recurring",
+        "slug": "recurring",
+        "status": "published",
+        "data": {
+          "title": "Recurring",
+          "categories": [
+            "identity",
+            "web"
+          ],
+          "worked_with": "Not On Sunday",
+          "period": "2026 - Completed",
+          "live_url": null,
+          "about": [],
+          "keywords": "",
+          "preview": null,
+          "gallery": [],
+          "thumbnails": [
+            {
+              "image": null,
+              "category": "identity"
+            },
+            {
+              "image": null,
+              "category": "web"
+            }
+          ]
+        }
+      },
+      {
+        "id": "work:roadlyne",
+        "slug": "roadlyne",
+        "status": "published",
+        "data": {
+          "title": "Roadlyne",
+          "categories": [
+            "product",
+            "web"
+          ],
+          "worked_with": "Freelance",
+          "period": "2025 - Completed",
+          "live_url": null,
+          "about": [
+            {
+              "_type": "block",
+              "_key": "567bdd84763c",
+              "style": "normal",
+              "markDefs": [
+                {
+                  "_key": "b8b3b90b02bb",
+                  "_type": "link",
+                  "href": "https://roadlyne.com/"
+                }
+              ],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "cb5310171055",
+                  "text": "India's logistics industry loses over ₹1.5 lakh crore a year to inefficiency — idle trucks, fuel theft, unmonitored drivers, and zero real-time visibility across fleets. ",
+                  "marks": []
+                },
+                {
+                  "_type": "span",
+                  "_key": "ddd7f1e6dbe5",
+                  "text": "Roadlyne",
+                  "marks": [
+                    "b8b3b90b02bb"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "_key": "6cdd6474b5d7",
+                  "text": " is building the operational backbone to fix that — an all-in-one fleet and transport management platform where GPS hardware, real-time telematics, and logistics software come together in a single system. Fleet owners can track every truck live, monitor driver behaviour, manage geofences, and control expenses. Transport operators can run the full trip lifecycle — from booking and dispatch to delivery confirmation — without a single phone call or WhatsApp message. The platform is built to scale from 5 trucks to 500+, with 99.9% uptime and multi-platform connectivity across mobile, tablet, and web — operating in a market where the leading players manage 2M+ trucks across 1,600+ cities in India.\n\nI designed the end-to-end web app product for both Roadlyne Fleet and Roadlyne Transport — transforming a mobile-only experience into a fully responsive web platform across 100+ screens, giving fleet owners and transport operators a clear, actionable view of their entire operation from any device.",
+                  "marks": []
+                }
+              ]
+            }
+          ],
+          "keywords": "B2B SaaS, Product Design, Fleet Management, Web app, Responsive Design, Real Time Data, Design System",
+          "preview": null,
+          "gallery": [
+            {
+              "_type": "image",
+              "_key": "3af36f9559d7",
+              "asset": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/bnIrcSZHRTjKNg5thty2lwoK9jc.jpg",
+                  "alt": "",
+                  "filename": "bnIrcSZHRTjKNg5thty2lwoK9jc.jpg"
+                }
+              },
+              "alt": "",
+              "width": 2560,
+              "height": 1708
+            },
+            {
+              "_type": "image",
+              "_key": "cf2461ab620c",
+              "asset": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/6N7pi1wXgTG4ep46QtYmLEsKn8.jpg",
+                  "alt": "",
+                  "filename": "6N7pi1wXgTG4ep46QtYmLEsKn8.jpg"
+                }
+              },
+              "alt": "",
+              "width": 2560,
+              "height": 1708
+            },
+            {
+              "_type": "image",
+              "_key": "1ee18ac16472",
+              "asset": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/RlJeL5djeOe28NUlOGd2y8CJ3Kw.jpg",
+                  "alt": "",
+                  "filename": "RlJeL5djeOe28NUlOGd2y8CJ3Kw.jpg"
+                }
+              },
+              "alt": "",
+              "width": 2560,
+              "height": 1708
+            },
+            {
+              "_type": "image",
+              "_key": "f153acc07203",
+              "asset": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/WofcYJbthl9SQu8OBg9XqgDmE.jpg",
+                  "alt": "",
+                  "filename": "WofcYJbthl9SQu8OBg9XqgDmE.jpg"
+                }
+              },
+              "alt": "",
+              "width": 2560,
+              "height": 1708
+            },
+            {
+              "_type": "image",
+              "_key": "52baace09307",
+              "asset": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/lloK6favu2uX42fgVag7VEmHlGQ.jpg",
+                  "alt": "",
+                  "filename": "lloK6favu2uX42fgVag7VEmHlGQ.jpg"
+                }
+              },
+              "alt": "",
+              "width": 2560,
+              "height": 1708
+            },
+            {
+              "_type": "image",
+              "_key": "298bd09a78a9",
+              "asset": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/bMtSinKUCKaS5hyXmgsv0CVKULw.jpg",
+                  "alt": "",
+                  "filename": "bMtSinKUCKaS5hyXmgsv0CVKULw.jpg"
+                }
+              },
+              "alt": "",
+              "width": 2560,
+              "height": 1708
+            },
+            {
+              "_type": "image",
+              "_key": "6df04fc90d45",
+              "asset": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/LaHR4hC0wvir0GH04uHkTKI9A.jpg",
+                  "alt": "",
+                  "filename": "LaHR4hC0wvir0GH04uHkTKI9A.jpg"
+                }
+              },
+              "alt": "",
+              "width": 2560,
+              "height": 1708
+            },
+            {
+              "_type": "image",
+              "_key": "c128d1e0a252",
+              "asset": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/ZBAmYz5rDffm2ULAlc1znmtvGRc.jpg",
+                  "alt": "",
+                  "filename": "ZBAmYz5rDffm2ULAlc1znmtvGRc.jpg"
+                }
+              },
+              "alt": "",
+              "width": 2560,
+              "height": 1708
+            },
+            {
+              "_type": "image",
+              "_key": "40bc29c2e863",
+              "asset": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/6hFVFrAyJ5ovCE7ZAriyGLcvzAA.jpg",
+                  "alt": "",
+                  "filename": "6hFVFrAyJ5ovCE7ZAriyGLcvzAA.jpg"
+                }
+              },
+              "alt": "",
+              "width": 2560,
+              "height": 1708
+            },
+            {
+              "_type": "image",
+              "_key": "b81449d34330",
+              "asset": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/Z7HBjUKscN1ar9CGFycBZHqc.jpg",
+                  "alt": "",
+                  "filename": "Z7HBjUKscN1ar9CGFycBZHqc.jpg"
+                }
+              },
+              "alt": "",
+              "width": 2560,
+              "height": 1708
+            },
+            {
+              "_type": "image",
+              "_key": "4f6af67736d3",
+              "asset": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/FBgLYD7ie7BYdlBB1g45K7pNZQ0.jpg",
+                  "alt": "",
+                  "filename": "FBgLYD7ie7BYdlBB1g45K7pNZQ0.jpg"
+                }
+              },
+              "alt": "",
+              "width": 2560,
+              "height": 1708
+            },
+            {
+              "_type": "image",
+              "_key": "2ce46da46748",
+              "asset": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/3D4bF6ZpRBVJBUc5LYIhiK27eU.jpg",
+                  "alt": "",
+                  "filename": "3D4bF6ZpRBVJBUc5LYIhiK27eU.jpg"
+                }
+              },
+              "alt": "",
+              "width": 2560,
+              "height": 1708
+            },
+            {
+              "_type": "image",
+              "_key": "9bb787941f1b",
+              "asset": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/xYAYwJxyFaG7M9RHyncHqYuFi4.jpg",
+                  "alt": "",
+                  "filename": "xYAYwJxyFaG7M9RHyncHqYuFi4.jpg"
+                }
+              },
+              "alt": "",
+              "width": 2560,
+              "height": 1708
+            },
+            {
+              "_type": "image",
+              "_key": "ade1fb968d4f",
+              "asset": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/XimuLF7TLcuwdREhFyyuqGY9J4.jpg",
+                  "alt": "",
+                  "filename": "XimuLF7TLcuwdREhFyyuqGY9J4.jpg"
+                }
+              },
+              "alt": "",
+              "width": 2560,
+              "height": 1708
+            },
+            {
+              "_type": "image",
+              "_key": "491b79655aff",
+              "asset": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/eUtl8z0gApcBy1zYw1uUUB87uc.jpg",
+                  "alt": "",
+                  "filename": "eUtl8z0gApcBy1zYw1uUUB87uc.jpg"
+                }
+              },
+              "alt": "",
+              "width": 2560,
+              "height": 1708
+            }
+          ],
+          "thumbnails": [
+            {
+              "image": null,
+              "category": "product"
+            }
+          ]
+        }
+      },
+      {
+        "id": "work:sarvaan",
+        "slug": "sarvaan",
+        "status": "published",
+        "data": {
+          "title": "Sarvaan",
+          "categories": [
+            "packaging",
+            "media"
+          ],
+          "worked_with": "Not On Sunday",
+          "period": "2026 - Completed",
+          "live_url": null,
+          "about": [],
+          "keywords": "",
+          "preview": null,
+          "gallery": [],
+          "thumbnails": [
+            {
+              "image": null,
+              "category": "packaging"
+            },
+            {
+              "image": null,
+              "category": "media"
+            }
+          ]
+        }
+      },
+      {
+        "id": "work:scribbling-sams",
+        "slug": "scribbling-sams",
+        "status": "published",
+        "data": {
+          "title": "Scribbling Sams",
+          "categories": [
+            "web"
+          ],
+          "worked_with": "Not On Sunday",
+          "period": "2025 - Completed",
+          "live_url": null,
+          "about": [],
+          "keywords": "",
+          "preview": null,
+          "gallery": [],
+          "thumbnails": [
+            {
+              "image": null,
+              "category": "web"
+            }
+          ]
+        }
+      },
+      {
+        "id": "work:seri-seri",
+        "slug": "seri-seri",
+        "status": "published",
+        "data": {
+          "title": "Seri Seri",
+          "categories": [
+            "identity",
+            "media",
+            "space"
+          ],
+          "worked_with": "Not On Sunday",
+          "period": "2026 - Completed",
+          "live_url": null,
+          "about": [],
+          "keywords": "",
+          "preview": null,
+          "gallery": [
+            {
+              "_type": "image",
+              "_key": "2792aeffc3f7",
+              "asset": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/uUo7Z3rY0gbqwUXdtsBkQVyo2U.jpg",
+                  "alt": "",
+                  "filename": "uUo7Z3rY0gbqwUXdtsBkQVyo2U.jpg"
+                }
+              },
+              "alt": "",
+              "width": 5880,
+              "height": 3416
+            },
+            {
+              "_type": "image",
+              "_key": "3367b3f7c00b",
+              "asset": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/waUXhP2QfggbsyRRlrPaEEqbL8U.gif",
+                  "alt": "",
+                  "filename": "waUXhP2QfggbsyRRlrPaEEqbL8U.gif"
+                }
+              },
+              "alt": "",
+              "width": 1470,
+              "height": 964
+            },
+            {
+              "_type": "image",
+              "_key": "da0bdbd3c311",
+              "asset": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/h1kt47LIUIBkIi2cwGVuw63lx7k.gif",
+                  "alt": "",
+                  "filename": "h1kt47LIUIBkIi2cwGVuw63lx7k.gif"
+                }
+              },
+              "alt": "",
+              "width": 1470,
+              "height": 964
+            },
+            {
+              "_type": "image",
+              "_key": "42aa0c3bc696",
+              "asset": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/evjRVxyzTG9JotU6FteYgoSm2FM.gif",
+                  "alt": "",
+                  "filename": "evjRVxyzTG9JotU6FteYgoSm2FM.gif"
+                }
+              },
+              "alt": "",
+              "width": 1470,
+              "height": 964
+            },
+            {
+              "_type": "image",
+              "_key": "7e0c64592ba7",
+              "asset": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/ZfLUhgD4GeKBhocDxs6wEn4uo.gif",
+                  "alt": "",
+                  "filename": "ZfLUhgD4GeKBhocDxs6wEn4uo.gif"
+                }
+              },
+              "alt": "",
+              "width": 1470,
+              "height": 854
+            },
+            {
+              "_type": "image",
+              "_key": "8e6710dde0a1",
+              "asset": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/KMDeFulV31YaPBYNljWEazaCGY.gif",
+                  "alt": "",
+                  "filename": "KMDeFulV31YaPBYNljWEazaCGY.gif"
+                }
+              },
+              "alt": "",
+              "width": 1470,
+              "height": 964
+            },
+            {
+              "_type": "image",
+              "_key": "e742837cc741",
+              "asset": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/SiICBsERgU3KyHlQa1UYVdxGz6E.gif",
+                  "alt": "",
+                  "filename": "SiICBsERgU3KyHlQa1UYVdxGz6E.gif"
+                }
+              },
+              "alt": "",
+              "width": 1470,
+              "height": 964
+            },
+            {
+              "_type": "image",
+              "_key": "0139f18570b1",
+              "asset": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/Z36uW9MiZ6WNYZb7uwa0SrmJGc.gif",
+                  "alt": "",
+                  "filename": "Z36uW9MiZ6WNYZb7uwa0SrmJGc.gif"
+                }
+              },
+              "alt": "",
+              "width": 1470,
+              "height": 964
+            },
+            {
+              "_type": "image",
+              "_key": "e2eda81a5b5f",
+              "asset": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/w0V9VgAgi817ROMIxiddIlUK3M.jpg",
+                  "alt": "",
+                  "filename": "w0V9VgAgi817ROMIxiddIlUK3M.jpg"
+                }
+              },
+              "alt": "",
+              "width": 5880,
+              "height": 3416
+            },
+            {
+              "_type": "image",
+              "_key": "ceaed3f09bcf",
+              "asset": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/kBBTPHdIN15Jn68LKzns5uzLr4.gif",
+                  "alt": "",
+                  "filename": "kBBTPHdIN15Jn68LKzns5uzLr4.gif"
+                }
+              },
+              "alt": "",
+              "width": 1470,
+              "height": 1100
+            },
+            {
+              "_type": "image",
+              "_key": "90c53ffcda57",
+              "asset": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/Zxe5Si7LYb81uK8a0yD1IXScbF0.gif",
+                  "alt": "",
+                  "filename": "Zxe5Si7LYb81uK8a0yD1IXScbF0.gif"
+                }
+              },
+              "alt": "",
+              "width": 1470,
+              "height": 964
+            },
+            {
+              "_type": "image",
+              "_key": "0322a43d87eb",
+              "asset": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/ohtQjuKWwV5iChp3qVr0nmX5E.jpg",
+                  "alt": "",
+                  "filename": "ohtQjuKWwV5iChp3qVr0nmX5E.jpg"
+                }
+              },
+              "alt": "",
+              "width": 5880,
+              "height": 3416
+            },
+            {
+              "_type": "image",
+              "_key": "a0804b7a9e76",
+              "asset": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/HNiMpI4esHcnqFa3aCZavIOvfYw.png",
+                  "alt": "",
+                  "filename": "HNiMpI4esHcnqFa3aCZavIOvfYw.png"
+                }
+              },
+              "alt": "",
+              "width": 5880,
+              "height": 3416
+            },
+            {
+              "_type": "image",
+              "_key": "73fbf848eb8c",
+              "asset": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/fhSeF4L8M3wWiBD0PVFZAkxxFk.png",
+                  "alt": "",
+                  "filename": "fhSeF4L8M3wWiBD0PVFZAkxxFk.png"
+                }
+              },
+              "alt": "",
+              "width": 5880,
+              "height": 3856
+            },
+            {
+              "_type": "image",
+              "_key": "80ef48ad0847",
+              "asset": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/r2IjbiT4nVAuZIu5lt57gxCjXOQ.png",
+                  "alt": "",
+                  "filename": "r2IjbiT4nVAuZIu5lt57gxCjXOQ.png"
+                }
+              },
+              "alt": "",
+              "width": 5880,
+              "height": 3856
+            },
+            {
+              "_type": "image",
+              "_key": "bad269ae39f2",
+              "asset": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/HIDtsUkcpDIuJPZjcijY9jc6Q24.png",
+                  "alt": "",
+                  "filename": "HIDtsUkcpDIuJPZjcijY9jc6Q24.png"
+                }
+              },
+              "alt": "",
+              "width": 5880,
+              "height": 3856
+            },
+            {
+              "_type": "image",
+              "_key": "f98eb2cf5371",
+              "asset": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/1iqlQSRiVjuzOB4lM936l7PIn8.png",
+                  "alt": "",
+                  "filename": "1iqlQSRiVjuzOB4lM936l7PIn8.png"
+                }
+              },
+              "alt": "",
+              "width": 5880,
+              "height": 3856
+            },
+            {
+              "_type": "image",
+              "_key": "48eed9b11606",
+              "asset": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/pDpZvvmFxI67YgwafRexoa8z4k.png",
+                  "alt": "",
+                  "filename": "pDpZvvmFxI67YgwafRexoa8z4k.png"
+                }
+              },
+              "alt": "",
+              "width": 5880,
+              "height": 3856
+            },
+            {
+              "_type": "image",
+              "_key": "ea7339f55d13",
+              "asset": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/lkB46Xv1VxJk8uJQiuWXYIuQuNg.png",
+                  "alt": "",
+                  "filename": "lkB46Xv1VxJk8uJQiuWXYIuQuNg.png"
+                }
+              },
+              "alt": "",
+              "width": 5880,
+              "height": 3856
+            }
+          ],
+          "thumbnails": [
+            {
+              "image": null,
+              "category": "identity"
+            },
+            {
+              "image": null,
+              "category": "media"
+            },
+            {
+              "image": null,
+              "category": "space"
+            }
+          ]
+        }
+      },
+      {
+        "id": "work:skins",
+        "slug": "skins",
+        "status": "published",
+        "data": {
+          "title": "Skins",
+          "categories": [
+            "identity",
+            "media",
+            "web"
+          ],
+          "worked_with": "Not On Sunday",
+          "period": "2026 - Completed",
+          "live_url": null,
+          "about": [],
+          "keywords": "",
+          "preview": null,
+          "gallery": [],
+          "thumbnails": [
+            {
+              "image": null,
+              "category": "identity"
+            },
+            {
+              "image": null,
+              "category": "media"
+            },
+            {
+              "image": null,
+              "category": "web"
+            }
+          ]
+        }
+      },
+      {
+        "id": "work:studio-sukta",
+        "slug": "studio-sukta",
+        "status": "published",
+        "data": {
+          "title": "Studio Sukta",
+          "categories": [
+            "web",
+            "media"
+          ],
+          "worked_with": "Not On Sunday",
+          "period": "2025 - Completed",
+          "live_url": null,
+          "about": [],
+          "keywords": "",
+          "preview": null,
+          "gallery": [],
+          "thumbnails": [
+            {
+              "image": null,
+              "category": "web"
+            }
+          ]
+        }
+      },
+      {
+        "id": "work:swiftech",
+        "slug": "swiftech",
+        "status": "published",
+        "data": {
+          "title": "Swiftech",
+          "categories": [
+            "web",
+            "identity"
+          ],
+          "worked_with": "Not On Sunday",
+          "period": "2026 - Completed",
+          "live_url": null,
+          "about": [],
+          "keywords": "",
+          "preview": null,
+          "gallery": [],
+          "thumbnails": [
+            {
+              "image": null,
+              "category": "web"
+            },
+            {
+              "image": null,
+              "category": "identity"
+            }
+          ]
+        }
+      },
+      {
+        "id": "work:velodynamics",
+        "slug": "velodynamics",
+        "status": "published",
+        "data": {
+          "title": "Velodynamics",
+          "categories": [
+            "identity",
+            "web",
+            "media"
+          ],
+          "worked_with": "Not On Sunday",
+          "period": "2026 - Completed",
+          "live_url": null,
+          "about": [],
+          "keywords": "",
+          "preview": null,
+          "gallery": [],
+          "thumbnails": [
+            {
+              "image": null,
+              "category": "identity"
+            },
+            {
+              "image": null,
+              "category": "web"
+            },
+            {
+              "image": null,
+              "category": "media"
+            }
+          ]
+        }
+      }
+    ],
+    "about": [
+      {
+        "id": "about:main",
+        "slug": null,
+        "status": "published",
+        "data": {
+          "title": "About",
+          "bio": [
+            {
+              "_type": "block",
+              "_key": "3f1c7c34d468",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "094fe699056e",
+                  "text": "I grew up in a house where books lived everywhere: on the dining table, the kitchen counter, the stairs, even in the car. My dad teaches Maths, my mom teaches Physics, and curiosity wasn’t optional. It was just the air we breathed.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "f6d18a6bb484",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "272fb5a86f80",
+                  "text": "",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "c99c00849cda",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "f5558918f032",
+                  "text": "Maybe that’s why I scored 100 in Maths until 9th standard and stood first at my centre in the 12th boards, and still somehow became a designer. I don’t think the two are that different. Both are about finding the most elegant solution to a hard problem.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "d4d8d8077de4",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "8ba1a27ccbdd",
+                  "text": "",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "646548023b3c",
+              "style": "normal",
+              "markDefs": [
+                {
+                  "_key": "040d609d29ef",
+                  "_type": "link",
+                  "href": "https://github.com/amart-yux/CentralAssessmentProgram"
+                },
+                {
+                  "_key": "f7d31c98c6c2",
+                  "_type": "link",
+                  "href": "https://vsco.co/immortal-pux/gallery"
+                }
+              ],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "b11b30d70e0c",
+                  "text": "I studied IT Engineering with a major in Cyber Security, and for our final-year project, my team and I built ",
+                  "marks": []
+                },
+                {
+                  "_type": "span",
+                  "_key": "2583a771e630",
+                  "text": "CAP (Central Assessment Program)",
+                  "marks": [
+                    "040d609d29ef"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "_key": "dc00c245d68b",
+                  "text": ", a system to modernise how institutions run exams and evaluations. It earned us a patent, which still feels a little surreal to say. I loved the logic, but there was always another side of me: watercolours since childhood, and a camera in my hand the moment I step outside. I shoot street photography and dump it on ",
+                  "marks": []
+                },
+                {
+                  "_type": "span",
+                  "_key": "ec60320b91ea",
+                  "text": "VSCO",
+                  "marks": [
+                    "f7d31c98c6c2"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "_key": "3c24469913b1",
+                  "text": " every other day, like a journal. Design was where both halves finally made sense together.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "a38b9e5a65b6",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "06fdbabe89f7",
+                  "text": "",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "7c1db452b414",
+              "style": "normal",
+              "markDefs": [
+                {
+                  "_key": "bdc253ff7257",
+                  "_type": "link",
+                  "href": "https://www.notonsunday.in/"
+                }
+              ],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "9c0c70a0593a",
+                  "text": "Today, I’m 24 and the Creative Director at ",
+                  "marks": []
+                },
+                {
+                  "_type": "span",
+                  "_key": "6e8902fcc471",
+                  "text": "Not on Sunday Studios",
+                  "marks": [
+                    "bdc253ff7257"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "_key": "1a966d214cb0",
+                  "text": " in Kolhapur, and I’m loving it. I recently gave my GRE, and I still get humbled by what the great watercolourists did with just water and pigment. That feeling of knowing how much there is left to learn is probably the most useful thing I bring to my work.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "7edce518410d",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "f10e60570d5c",
+                  "text": "",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "0f21e54aeddf",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "b9a4e6ac7b5a",
+                  "text": "Outside work, I’m happiest with a bike, an open road, and a few hours away from everything, whether I’m discovering somewhere new or just riding with people who make the journey worth it. I value the little things: conversations that run longer than planned, time together without a reason, and memories that don’t look like much at the time but stay for years.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b11fd9c7d45c",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "4e9685e803af",
+                  "text": "",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "8a6313595139",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "fe2bce1aed3b",
+                  "text": "That’s what I love about building Not on Sunday with the Fourman Studios team. It’s the easy back-and-forth, the shared thrill when an idea finally clicks, and having someone beside you who’s putting in the same effort. ",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "02e648058961",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "62561985f709",
+                  "text": "",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "a7eaeb734f69",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "bbc527d6fc55",
+                  "text": "Somewhere along the way, coworkers became people I genuinely care about, and work became something we’re building together. I hope we never lose that.",
+                  "marks": []
+                }
+              ]
+            }
+          ],
+          "gallery": [
+            {
+              "photo": null,
+              "blank": true
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/4pqXKmYSLWA2Ve6seq5sXHnw.jpeg",
+                  "alt": "Gallery image 2",
+                  "filename": "4pqXKmYSLWA2Ve6seq5sXHnw.jpeg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/5xsrVQLaoG3bZDqJZ3sD6i8TfU.jpg",
+                  "alt": "Gallery image 3",
+                  "filename": "5xsrVQLaoG3bZDqJZ3sD6i8TfU.jpg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/vNMi23acBH8dlZorJCchg35teTo.jpg",
+                  "alt": "Gallery image 4",
+                  "filename": "vNMi23acBH8dlZorJCchg35teTo.jpg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": null,
+              "blank": true
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/YVCmBXat4Prko0GOV3iqYsxE1I.jpg",
+                  "alt": "Gallery image 6",
+                  "filename": "YVCmBXat4Prko0GOV3iqYsxE1I.jpg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": null,
+              "blank": true
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/DkZZQ9H0Uv6CHXPOwZg6YDp7EA.jpg",
+                  "alt": "Gallery image 8",
+                  "filename": "DkZZQ9H0Uv6CHXPOwZg6YDp7EA.jpg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/J8vBzttzH7RJuJJ0yQmyPzVpk0.jpg",
+                  "alt": "Gallery image 9",
+                  "filename": "J8vBzttzH7RJuJJ0yQmyPzVpk0.jpg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/RqnJY4gIvbzbAbNh28Ljw4w39wE.jpg",
+                  "alt": "Gallery image 10",
+                  "filename": "RqnJY4gIvbzbAbNh28Ljw4w39wE.jpg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/zld1sJaOQGzl0KeIIPkPyBheE.jpg",
+                  "alt": "Gallery image 11",
+                  "filename": "zld1sJaOQGzl0KeIIPkPyBheE.jpg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/xfjoDALmC5Qxbr8dmxts4U1VIU.jpg",
+                  "alt": "Gallery image 12",
+                  "filename": "xfjoDALmC5Qxbr8dmxts4U1VIU.jpg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/n3KMCTPK3cEJTmulN5ESgdtRNBo.jpg",
+                  "alt": "Gallery image 13",
+                  "filename": "n3KMCTPK3cEJTmulN5ESgdtRNBo.jpg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": null,
+              "blank": true
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/rVGoFrqaDRI6qUGIyFkFmB6KQ.jpg",
+                  "alt": "Gallery image 15",
+                  "filename": "rVGoFrqaDRI6qUGIyFkFmB6KQ.jpg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/0M8HCFs2PZ4Usfr0pUqpYm93gxU.jpg",
+                  "alt": "Gallery image 16",
+                  "filename": "0M8HCFs2PZ4Usfr0pUqpYm93gxU.jpg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/KzaxLkjx2AAT4JNJg4ZICow5tl0.jpg",
+                  "alt": "Gallery image 17",
+                  "filename": "KzaxLkjx2AAT4JNJg4ZICow5tl0.jpg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": null,
+              "blank": true
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/ykUAfKfQZFtTuZLW6TMhwHfr0Uc.jpeg",
+                  "alt": "Gallery image 19",
+                  "filename": "ykUAfKfQZFtTuZLW6TMhwHfr0Uc.jpeg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": null,
+              "blank": true
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/FG9gEO0WkcM1qjKOjmJx4Dw22M.jpeg",
+                  "alt": "Gallery image 21",
+                  "filename": "FG9gEO0WkcM1qjKOjmJx4Dw22M.jpeg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/3OVgUYdPHYGRsyIDFKN64uje6fw.jpeg",
+                  "alt": "Gallery image 22",
+                  "filename": "3OVgUYdPHYGRsyIDFKN64uje6fw.jpeg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/bQtggyvuMW8rhQHRbFjFiN0ZOSw.jpeg",
+                  "alt": "Gallery image 23",
+                  "filename": "bQtggyvuMW8rhQHRbFjFiN0ZOSw.jpeg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": null,
+              "blank": true
+            },
+            {
+              "photo": null,
+              "blank": true
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/W3Bb9lOxeMA5gsaxZ1edhzocbs.jpg",
+                  "alt": "Gallery image 26",
+                  "filename": "W3Bb9lOxeMA5gsaxZ1edhzocbs.jpg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/wkyPKamgC5J7LSBWwojoO3Eb2XI.jpg",
+                  "alt": "Gallery image 27",
+                  "filename": "wkyPKamgC5J7LSBWwojoO3Eb2XI.jpg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/982s46VcT1RARtq56RUjtb09aAU.jpeg",
+                  "alt": "Gallery image 28",
+                  "filename": "982s46VcT1RARtq56RUjtb09aAU.jpeg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/8DEUZoYvMsU7L0ulzEiSm8g8h0.jpg",
+                  "alt": "Gallery image 29",
+                  "filename": "8DEUZoYvMsU7L0ulzEiSm8g8h0.jpg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": null,
+              "blank": true
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/3rtX5wJwUDbJnBuwc0EKh7P6VyU.jpg",
+                  "alt": "Gallery image 31",
+                  "filename": "3rtX5wJwUDbJnBuwc0EKh7P6VyU.jpg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": null,
+              "blank": true
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/80vnvplyo00fdWRm2lIuB8xO9Y.jpg",
+                  "alt": "Gallery image 33",
+                  "filename": "80vnvplyo00fdWRm2lIuB8xO9Y.jpg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/D23LdAi99kUzWWUU5o7dizipoo.jpg",
+                  "alt": "Gallery image 34",
+                  "filename": "D23LdAi99kUzWWUU5o7dizipoo.jpg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": null,
+              "blank": true
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/STom4nJ7orWe4HnUlnTo0mPj68U.jpg",
+                  "alt": "Gallery image 36",
+                  "filename": "STom4nJ7orWe4HnUlnTo0mPj68U.jpg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/D05EFiDBUMNAL37tekwkTmgXPA.jpg",
+                  "alt": "Gallery image 37",
+                  "filename": "D05EFiDBUMNAL37tekwkTmgXPA.jpg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/Ly7wRqov6uL1ZAYigF4Xvm0GVfk.jpg",
+                  "alt": "Gallery image 38",
+                  "filename": "Ly7wRqov6uL1ZAYigF4Xvm0GVfk.jpg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": null,
+              "blank": true
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/igf7rdrZJn6J9rEGhrDIoIPgY.jpeg",
+                  "alt": "Gallery image 40",
+                  "filename": "igf7rdrZJn6J9rEGhrDIoIPgY.jpeg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/liSKozTRncwRIf6Xj1MVpuo2I.jpg",
+                  "alt": "Gallery image 41",
+                  "filename": "liSKozTRncwRIf6Xj1MVpuo2I.jpg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/LoJUwDIJuKgMfStUtSuKx5lLi6M.jpg",
+                  "alt": "Gallery image 42",
+                  "filename": "LoJUwDIJuKgMfStUtSuKx5lLi6M.jpg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": null,
+              "blank": true
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/sBszI3eWSVjDKHPHhK7kJpJUWY.jpg",
+                  "alt": "Gallery image 44",
+                  "filename": "sBszI3eWSVjDKHPHhK7kJpJUWY.jpg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/euR9y4Jex14jAeXciq1WfpkB5Nk.jpg",
+                  "alt": "Gallery image 45",
+                  "filename": "euR9y4Jex14jAeXciq1WfpkB5Nk.jpg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/FkciQaVEG7j0xXnzjNn1r47z9I.jpg",
+                  "alt": "Gallery image 46",
+                  "filename": "FkciQaVEG7j0xXnzjNn1r47z9I.jpg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": null,
+              "blank": true
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/qjysVLbCKZO0ZEW8lpLqSM7Aqvg.jpg",
+                  "alt": "Gallery image 48",
+                  "filename": "qjysVLbCKZO0ZEW8lpLqSM7Aqvg.jpg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/8wvStOjL3z6KrI3pSwM6xUDc0.jpg",
+                  "alt": "Gallery image 49",
+                  "filename": "8wvStOjL3z6KrI3pSwM6xUDc0.jpg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/8n6WwdNUzFcjUGdR90SPMLYYZQ.jpg",
+                  "alt": "Gallery image 50",
+                  "filename": "8n6WwdNUzFcjUGdR90SPMLYYZQ.jpg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/aUi8Zax7IcoRAl6mZT8KBGDCj50.jpg",
+                  "alt": "Gallery image 51",
+                  "filename": "aUi8Zax7IcoRAl6mZT8KBGDCj50.jpg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": null,
+              "blank": true
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/irbaIMuzEMLJQ0cNwiG0m8wXoQ.jpeg",
+                  "alt": "Gallery image 53",
+                  "filename": "irbaIMuzEMLJQ0cNwiG0m8wXoQ.jpeg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": null,
+              "blank": true
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/qi2My57sK7zavwftzb812zgMPEw.jpeg",
+                  "alt": "Gallery image 55",
+                  "filename": "qi2My57sK7zavwftzb812zgMPEw.jpeg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/rS8C2iEXmE61DDwA3WpXNyI4p0.jpg",
+                  "alt": "Gallery image 56",
+                  "filename": "rS8C2iEXmE61DDwA3WpXNyI4p0.jpg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/61MKErsebp85WJO0KjgtkRJg3MM.jpeg",
+                  "alt": "Gallery image 57",
+                  "filename": "61MKErsebp85WJO0KjgtkRJg3MM.jpeg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/Jfw9iK7ujABPyYzGw5oMxisJOmA.jpeg",
+                  "alt": "Gallery image 58",
+                  "filename": "Jfw9iK7ujABPyYzGw5oMxisJOmA.jpeg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": null,
+              "blank": true
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/smSm8at9G2Dq68Q3YMoHijfEuA.jpeg",
+                  "alt": "Gallery image 60",
+                  "filename": "smSm8at9G2Dq68Q3YMoHijfEuA.jpeg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": null,
+              "blank": true
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/EfQDmBgHvEAsjvTYlXwitIT2G0.jpeg",
+                  "alt": "Gallery image 62",
+                  "filename": "EfQDmBgHvEAsjvTYlXwitIT2G0.jpeg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": null,
+              "blank": true
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/CpbaOJ7CBCgjYJbdxf0fGNB6NeI.jpg",
+                  "alt": "Gallery image 64",
+                  "filename": "CpbaOJ7CBCgjYJbdxf0fGNB6NeI.jpg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/e9BIRfqMVoHidwNCkuRQaTzzn8.jpeg",
+                  "alt": "Gallery image 65",
+                  "filename": "e9BIRfqMVoHidwNCkuRQaTzzn8.jpeg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/YW6r7hkIFN1tctiBRujdEWU1Js.jpeg",
+                  "alt": "Gallery image 66",
+                  "filename": "YW6r7hkIFN1tctiBRujdEWU1Js.jpeg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/vgsDqaVgx9TVkVwWOr3OOrYcgM.jpeg",
+                  "alt": "Gallery image 67",
+                  "filename": "vgsDqaVgx9TVkVwWOr3OOrYcgM.jpeg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": null,
+              "blank": true
+            },
+            {
+              "photo": null,
+              "blank": true
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/FXlkimia97Y7I8BrvW53Ldnk.jpeg",
+                  "alt": "Gallery image 70",
+                  "filename": "FXlkimia97Y7I8BrvW53Ldnk.jpeg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/1q2JCAVTBzfuc01Lz0u3RKMH5w.jpeg",
+                  "alt": "Gallery image 71",
+                  "filename": "1q2JCAVTBzfuc01Lz0u3RKMH5w.jpeg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/6pM9Od7J5A837WakOaff3EYL88.jpeg",
+                  "alt": "Gallery image 72",
+                  "filename": "6pM9Od7J5A837WakOaff3EYL88.jpeg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": null,
+              "blank": true
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/FfP7Bn4CpUKskbmj8xfIV9wXbCs.jpeg",
+                  "alt": "Gallery image 74",
+                  "filename": "FfP7Bn4CpUKskbmj8xfIV9wXbCs.jpeg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": null,
+              "blank": true
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/zou6GlvYKTuDLFiWL77guHQYFdY.jpeg",
+                  "alt": "Gallery image 76",
+                  "filename": "zou6GlvYKTuDLFiWL77guHQYFdY.jpeg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/uSEALLHQ5k7qiSLxLYQQvJFPlE.jpeg",
+                  "alt": "Gallery image 77",
+                  "filename": "uSEALLHQ5k7qiSLxLYQQvJFPlE.jpeg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/28gRrwDqjLlp08UeKY0mfgaz0XA.jpg",
+                  "alt": "Gallery image 78",
+                  "filename": "28gRrwDqjLlp08UeKY0mfgaz0XA.jpg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/BAUSOE5MUWjsmJeR9YVTjXguA4.jpeg",
+                  "alt": "Gallery image 79",
+                  "filename": "BAUSOE5MUWjsmJeR9YVTjXguA4.jpeg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/lqyrPzOyB3O3jiBeZUhDyiuyrDU.jpg",
+                  "alt": "Gallery image 80",
+                  "filename": "lqyrPzOyB3O3jiBeZUhDyiuyrDU.jpg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": null,
+              "blank": true
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/wx3HTQQqEzGimA6ZespRMFHOFrQ.jpeg",
+                  "alt": "Gallery image 82",
+                  "filename": "wx3HTQQqEzGimA6ZespRMFHOFrQ.jpeg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": null,
+              "blank": true
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/bOOSiYmSIZJoNKFMlBOUnpZfUo.jpeg",
+                  "alt": "Gallery image 84",
+                  "filename": "bOOSiYmSIZJoNKFMlBOUnpZfUo.jpeg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/ajTcfu86g9e14iN8sgszv0tuXk.jpeg",
+                  "alt": "Gallery image 85",
+                  "filename": "ajTcfu86g9e14iN8sgszv0tuXk.jpeg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": null,
+              "blank": true
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/kfD353skqCbtFtJsjR3qWPZmKI.jpeg",
+                  "alt": "Gallery image 87",
+                  "filename": "kfD353skqCbtFtJsjR3qWPZmKI.jpeg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": null,
+              "blank": true
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/RtfJL31bawmWtWmj0iippMpUE.jpeg",
+                  "alt": "Gallery image 89",
+                  "filename": "RtfJL31bawmWtWmj0iippMpUE.jpeg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/XU1WMqHmmH587r9fTnMOw0mT1A.jpg",
+                  "alt": "Gallery image 90",
+                  "filename": "XU1WMqHmmH587r9fTnMOw0mT1A.jpg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/4gA12LVCbYgxmk2g7GIolIZmg.jpeg",
+                  "alt": "Gallery image 91",
+                  "filename": "4gA12LVCbYgxmk2g7GIolIZmg.jpeg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": null,
+              "blank": true
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/v6FE1cDqgZTpIc2nLqmbDqcsGc.jpeg",
+                  "alt": "Gallery image 93",
+                  "filename": "v6FE1cDqgZTpIc2nLqmbDqcsGc.jpeg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/bExAK9qeP2wA5F74Yl2nckOg.jpeg",
+                  "alt": "Gallery image 94",
+                  "filename": "bExAK9qeP2wA5F74Yl2nckOg.jpeg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/9NiVW4GDdV6bJwy47qVQFl5UosU.jpeg",
+                  "alt": "Gallery image 95",
+                  "filename": "9NiVW4GDdV6bJwy47qVQFl5UosU.jpeg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": null,
+              "blank": true
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/4AK5qubjZgDzOZhKCOIM2G7JULE.jpeg",
+                  "alt": "Gallery image 97",
+                  "filename": "4AK5qubjZgDzOZhKCOIM2G7JULE.jpeg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": null,
+              "blank": true
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/zPMjaPSEhXSDxe5WrlSbSlYJD7E.jpeg",
+                  "alt": "Gallery image 99",
+                  "filename": "zPMjaPSEhXSDxe5WrlSbSlYJD7E.jpeg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/nJJX4fhPDNPpOZ5CzgW4vk1vxg.jpeg",
+                  "alt": "Gallery image 100",
+                  "filename": "nJJX4fhPDNPpOZ5CzgW4vk1vxg.jpeg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/INGngOizK9gEeu4DmQeB0L86g.jpeg",
+                  "alt": "Gallery image 101",
+                  "filename": "INGngOizK9gEeu4DmQeB0L86g.jpeg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": null,
+              "blank": true
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/ZX9RpcLqOD50IV80TTKQkEdvs.jpeg",
+                  "alt": "Gallery image 103",
+                  "filename": "ZX9RpcLqOD50IV80TTKQkEdvs.jpeg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/LxSRi0K5pgJJ2D2VYYrzrc2wrMA.jpeg",
+                  "alt": "Gallery image 104",
+                  "filename": "LxSRi0K5pgJJ2D2VYYrzrc2wrMA.jpeg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/dlxy5smDrZVedRZOOa3XLWJsw.jpeg",
+                  "alt": "Gallery image 105",
+                  "filename": "dlxy5smDrZVedRZOOa3XLWJsw.jpeg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": null,
+              "blank": true
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/dUSkOQGue2whxsjDKsHdv5b4s.jpeg",
+                  "alt": "Gallery image 107",
+                  "filename": "dUSkOQGue2whxsjDKsHdv5b4s.jpeg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/8WZEEIJyvsqNd9IvgaInaYLBxM0.jpg",
+                  "alt": "Gallery image 108",
+                  "filename": "8WZEEIJyvsqNd9IvgaInaYLBxM0.jpg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/TMGgg3uJ7hBXEw7FvwuuRRgZa18.jpeg",
+                  "alt": "Gallery image 109",
+                  "filename": "TMGgg3uJ7hBXEw7FvwuuRRgZa18.jpeg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": null,
+              "blank": true
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/S5E1PvWttPfcbEQBJpxp65BJrc.jpeg",
+                  "alt": "Gallery image 111",
+                  "filename": "S5E1PvWttPfcbEQBJpxp65BJrc.jpeg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": null,
+              "blank": true
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/aJbmPN4t9wsOmIqHaGgJVcb1A.jpeg",
+                  "alt": "Gallery image 113",
+                  "filename": "aJbmPN4t9wsOmIqHaGgJVcb1A.jpeg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/3W60UtjtbGOSTexmt3xk6aUZ0Kw.jpg",
+                  "alt": "Gallery image 114",
+                  "filename": "3W60UtjtbGOSTexmt3xk6aUZ0Kw.jpg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/lf4NNdNxNHC3A5YkOdbS50WxDWM.jpg",
+                  "alt": "Gallery image 115",
+                  "filename": "lf4NNdNxNHC3A5YkOdbS50WxDWM.jpg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/pnrfw88ONfH8ntak9Kd5tgZ63M.jpeg",
+                  "alt": "Gallery image 116",
+                  "filename": "pnrfw88ONfH8ntak9Kd5tgZ63M.jpeg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": null,
+              "blank": true
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/BNjbLVfuTBSk3EDrLT8grOpO28.jpeg",
+                  "alt": "Gallery image 118",
+                  "filename": "BNjbLVfuTBSk3EDrLT8grOpO28.jpeg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/dvQWjVsbNvob4MHerhZeSClZU4A.jpeg",
+                  "alt": "Gallery image 119",
+                  "filename": "dvQWjVsbNvob4MHerhZeSClZU4A.jpeg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/FAt3mkI2e2Cn7vp0cglsK72Wg.jpeg",
+                  "alt": "Gallery image 120",
+                  "filename": "FAt3mkI2e2Cn7vp0cglsK72Wg.jpeg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/5Q1sPTsyBPduFWy6arTtxFowlM.jpeg",
+                  "alt": "Gallery image 121",
+                  "filename": "5Q1sPTsyBPduFWy6arTtxFowlM.jpeg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": null,
+              "blank": true
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/52TAnDkse0559cxtYezj6UCO34.jpg",
+                  "alt": "Gallery image 123",
+                  "filename": "52TAnDkse0559cxtYezj6UCO34.jpg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/ljcCOIqBPk8XyRqIjACjRLGiAlg.jpeg",
+                  "alt": "Gallery image 124",
+                  "filename": "ljcCOIqBPk8XyRqIjACjRLGiAlg.jpeg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/QPHjCST20cBV8y9LWITA4rqfW9c.jpg",
+                  "alt": "Gallery image 125",
+                  "filename": "QPHjCST20cBV8y9LWITA4rqfW9c.jpg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/PCfTMnKsicrYnjTHTcnz7Tp8qPA.jpg",
+                  "alt": "Gallery image 126",
+                  "filename": "PCfTMnKsicrYnjTHTcnz7Tp8qPA.jpg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/t4hrwFXRfTScedmhXbQ257riuDA.jpg",
+                  "alt": "Gallery image 127",
+                  "filename": "t4hrwFXRfTScedmhXbQ257riuDA.jpg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": null,
+              "blank": true
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/dKn69zZ3hIqxHHQtUDgLFjQXYMo.jpg",
+                  "alt": "Gallery image 129",
+                  "filename": "dKn69zZ3hIqxHHQtUDgLFjQXYMo.jpg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/ziXl5Ldx8KN8mAli44ewyTg47wU.jpeg",
+                  "alt": "Gallery image 130",
+                  "filename": "ziXl5Ldx8KN8mAli44ewyTg47wU.jpeg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": null,
+              "blank": true
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/3RXd4snh1afwWyMMxDv0N7ueOk.jpg",
+                  "alt": "Gallery image 132",
+                  "filename": "3RXd4snh1afwWyMMxDv0N7ueOk.jpg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": null,
+              "blank": true
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/Vehhjeidvnzk7gX26MwL6tWa7L8.jpg",
+                  "alt": "Gallery image 134",
+                  "filename": "Vehhjeidvnzk7gX26MwL6tWa7L8.jpg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": null,
+              "blank": true
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/Wa3Cx5zy0XmaXYp5HSVPyee7rM.jpg",
+                  "alt": "Gallery image 136",
+                  "filename": "Wa3Cx5zy0XmaXYp5HSVPyee7rM.jpg"
+                }
+              },
+              "blank": false
+            },
+            {
+              "photo": {
+                "$media": {
+                  "url": "https://framerusercontent.com/images/9FItBaWG8VF2aiNhSuNkeFAfB7k.jpg",
+                  "alt": "Gallery image 137",
+                  "filename": "9FItBaWG8VF2aiNhSuNkeFAfB7k.jpg"
+                }
+              },
+              "blank": false
+            }
+          ]
+        }
+      }
+    ],
+    "home": [
+      {
+        "id": "home:main",
+        "slug": null,
+        "status": "published",
+        "data": {
+          "title": "Home",
+          "intro": [
+            {
+              "_type": "block",
+              "_key": "866a01af7591",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "365b935f2596",
+                  "text": "नमस्ते, ",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "e625b1e8a8fc",
+              "style": "normal",
+              "markDefs": [
+                {
+                  "_key": "5d563510ea54",
+                  "_type": "link",
+                  "href": "/about"
+                }
+              ],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "f2816a21e5ef",
+                  "text": "",
+                  "marks": []
+                },
+                {
+                  "_type": "span",
+                  "_key": "8e286a04f10e",
+                  "text": "Amartya Katge",
+                  "marks": [
+                    "5d563510ea54"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "_key": "8ce7e0d3688e",
+                  "text": " here, ",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "05ffd958824b",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "ebe79b04c055",
+                  "text": "",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "d1bdafd1b124",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "9720ad507d6e",
+                  "text": "I’ve always been curious about why people do what they do. Why one brand feels like home and another feels like a stranger. Why some ideas land instantly while others never quite click. I never got over those questions, and somewhere along the way, they became my job.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "f226b40b0593",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "102e494dc77b",
+                  "text": "",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "1b0dda51a3f9",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "ccc2d4977dcc",
+                  "text": "I’m a designer and Creative Director at Not On Sunday, working across brand, product, and digital experiences. Most of it comes down to understanding how people actually think and behave, then building around that instead of what we assume.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "02d22e2d3a14",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "bfe7cf8aa482",
+                  "text": "",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "c48db1704cf2",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "0c20d9fdbf7e",
+                  "text": "Based in India, and I work with founders, teams, and businesses who have a big, messy idea and need it to make sense to someone else.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "72d6d04deaf1",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "8f9bd1c711b7",
+                  "text": "",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "7e7a10b2b2f3",
+              "style": "normal",
+              "markDefs": [
+                {
+                  "_key": "de5fc82bf1a4",
+                  "_type": "link",
+                  "href": "mailto:amartya45k@gmail.com"
+                }
+              ],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "387d4b2d89c1",
+                  "text": "Contact: \n",
+                  "marks": []
+                },
+                {
+                  "_type": "span",
+                  "_key": "ff576d277308",
+                  "text": "amartya45k@gmail.com",
+                  "marks": [
+                    "de5fc82bf1a4"
+                  ]
+                }
+              ]
+            }
+          ],
+          "contact_email": "amartya45k@gmail.com"
+        }
+      }
+    ]
+  }
+}

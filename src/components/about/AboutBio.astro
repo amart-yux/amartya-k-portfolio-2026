@@ -1,0 +1,23 @@
+---
+import CloseLink from "@/components/shared/CloseLink.astro";
+import RichText from "@/components/shared/RichText.astro";
+import type { RichText as RichTextContent } from "@/lib/content/types";
+
+/**
+ * Pinned overlay on /about. Tablet+: three equal columns, biography in the
+ * first and "Close" at the far right of the third. Phone: "Close" row on top,
+ * biography below. Only the gallery behind it scrolls.
+ */
+interface Props {
+  content: RichTextContent;
+}
+const { content } = Astro.props;
+---
+
+<div class="fixed left-3 right-3 top-3 z-10 flex flex-col gap-3 tablet:left-4 tablet:right-4 tablet:top-4 tablet:flex-row tablet:items-start tablet:justify-center tablet:gap-4">
+  <RichText content={content} class="order-2 w-full tablet:order-none tablet:w-auto tablet:flex-[1_0_0px]" />
+  <div aria-hidden="true" class="hidden flex-[1_0_0px] self-stretch tablet:block"></div>
+  <div class="order-1 flex justify-end tablet:order-none tablet:flex-[1_0_0px]">
+    <CloseLink href="/" />
+  </div>
+</div>

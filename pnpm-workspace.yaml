@@ -1,0 +1,11 @@
+pmOnFail: ignore
+
+minimumReleaseAgeExclude:
+  - '@next/*'
+  - next
+
+# Native post-install steps these packages need in order to run.
+allowBuilds:
+  esbuild: true
+  workerd: true
+  sharp: true

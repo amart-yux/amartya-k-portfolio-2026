@@ -1,0 +1,26 @@
+---
+import type { VideoSource } from "@/lib/content/types";
+
+/** Gallery video: silent, looping, inline — behaves like an animated image. */
+interface Props {
+  video: VideoSource;
+  class?: string;
+  priority?: boolean;
+}
+const { video, class: className, priority = false } = Astro.props;
+---
+
+<video
+  autoplay
+  muted
+  loop
+  playsinline
+  preload={priority ? "auto" : "metadata"}
+  width={video.width}
+  height={video.height}
+  poster={video.poster}
+  aria-label={video.alt || undefined}
+  class:list={["block", className]}
+>
+  <source src={video.src} type={video.mimeType} />
+</video>

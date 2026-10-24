@@ -1,0 +1,12 @@
+---
+import RichText from "@/components/shared/RichText.astro";
+import type { RichText as RichTextContent } from "@/lib/content/types";
+
+/** Left column of the home page. */
+interface Props {
+  content: RichTextContent;
+}
+const { content } = Astro.props;
+---
+
+<RichText content={content} class="w-full tablet:w-auto tablet:flex-[1_0_0px]" />

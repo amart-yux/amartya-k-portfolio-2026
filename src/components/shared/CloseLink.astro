@@ -1,0 +1,20 @@
+---
+import ActionLabel from "./ActionLabel.astro";
+
+/** "× Close" control. Red underline on hover. */
+interface Props {
+  href: string;
+  class?: string;
+}
+const { href, class: className } = Astro.props;
+---
+
+<a href={href} class:list={["group flex items-center gap-0.5 text-foreground", className]}>
+  <svg viewBox="0 0 24 24" aria-hidden="true" class="block size-3.5 shrink-0">
+    <g transform="translate(5.25 5.25)" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none">
+      <path d="M 13.5 0 L 0 13.5"></path>
+      <path d="M 13.5 13.5 L 0 0"></path>
+    </g>
+  </svg>
+  <ActionLabel tone="negative">Close</ActionLabel>
+</a>

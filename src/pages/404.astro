@@ -1,0 +1,24 @@
+---
+import Base from "@/layouts/Base.astro";
+import ActionLabel from "@/components/shared/ActionLabel.astro";
+import MutedText from "@/components/shared/MutedText.astro";
+import PageFrame from "@/components/shared/PageFrame.astro";
+import Text from "@/components/shared/Text.astro";
+
+/** Mirrors the source's 404: centred message with a "Back to home" action. */
+Astro.response.status = 404;
+---
+
+<Base title="Page not found">
+  <PageFrame class="justify-center">
+    <div class="flex flex-col items-center gap-4 text-center">
+      <div class="flex flex-col gap-1">
+        <Text>Page not found</Text>
+        <MutedText class="max-w-48 text-balance">This page doesn&apos;t exist or has moved.</MutedText>
+      </div>
+      <a href="/">
+        <ActionLabel>Back to home</ActionLabel>
+      </a>
+    </div>
+  </PageFrame>
+</Base>
