@@ -13,7 +13,6 @@ export type RichText = RichTextBlock[];
 export type ImageSource = {
   kind: "image";
   src: string;
-  srcset?: string;
   width?: number;
   height?: number;
   alt: string;

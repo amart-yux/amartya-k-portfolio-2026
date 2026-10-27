@@ -9,7 +9,6 @@ interface Props {
 }
 const { items } = Astro.props;
 
-const SIZES = "(min-width: 1440px) 941px, (min-width: 810px) 65vw, 100vw";
 const MEDIA = "block h-auto w-full";
 ---
 
@@ -20,7 +19,7 @@ const MEDIA = "block h-auto w-full";
         {item.kind === "video" ? (
           <ContentVideo video={item} priority={index === 0} class={MEDIA} />
         ) : (
-          <ContentImage image={item} sizes={SIZES} priority={index === 0} class={MEDIA} />
+          <ContentImage image={item} priority={index === 0} class={MEDIA} />
         )}
       </div>
     ))

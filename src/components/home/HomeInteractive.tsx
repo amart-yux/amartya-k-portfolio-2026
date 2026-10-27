@@ -131,8 +131,6 @@ export function HomeInteractive({ works, subworks, categories, initialCategory, 
               {subwork.banner ? (
                 <img
                   src={subwork.banner.src}
-                  srcSet={subwork.banner.srcset}
-                  sizes="(min-width: 1440px) 80px, (min-width: 810px) 72px, 36px"
                   alt=""
                   loading="lazy"
                   decoding="async"
@@ -150,8 +148,6 @@ export function HomeInteractive({ works, subworks, categories, initialCategory, 
         {preview ? (
           <img
             src={preview.src}
-            srcSet={preview.srcset}
-            sizes="33vw"
             alt=""
             loading="eager"
             fetchPriority="high"

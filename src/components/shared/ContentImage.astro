@@ -1,24 +1,17 @@
 ---
 import type { ImageSource } from "@/lib/content/types";
 
-/**
- * Plain <img> with the responsive srcset resolved in the content layer
- * (see lib/content/media.ts), so GIFs keep their animation and the browser
- * picks the right width-scaled variant.
- */
+/** Plain <img> using the original Sanity asset URL without transformations. */
 interface Props {
   image: ImageSource;
-  sizes: string;
   class?: string;
   priority?: boolean;
 }
-const { image, sizes, class: className, priority = false } = Astro.props;
+const { image, class: className, priority = false } = Astro.props;
 ---
 
 <img
   src={image.src}
-  srcset={image.srcset}
-  sizes={sizes}
   width={image.width}
   height={image.height}
   alt={image.alt}
