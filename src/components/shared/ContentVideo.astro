@@ -22,5 +22,5 @@ const { video, class: className, priority = false } = Astro.props;
   aria-label={video.alt || undefined}
   class:list={["block", className]}
 >
-  <source src={video.src} type={video.mimeType} />
+  <source src={video.src} type={video.mimeType === "video/quicktime" ? undefined : video.mimeType} />
 </video>
