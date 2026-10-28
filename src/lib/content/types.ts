@@ -72,6 +72,8 @@ export type AboutPage = {
 export type SiteSettings = {
   title?: string;
   description?: string;
+  favicon?: ImageSource;
+  previewBanner?: ImageSource;
 };
 
 export type HomePage = {

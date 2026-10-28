@@ -66,6 +66,18 @@ export const siteSettings = defineType({
   fields: [
     defineField({ name: "title", title: "Site title", type: "string" }),
     defineField({ name: "description", title: "Description", type: "text", rows: 3 }),
+    defineField({
+      name: "favicon",
+      title: "Favicon",
+      type: "image",
+      description: "Upload a square image at 64 × 64 px.",
+    }),
+    defineField({
+      name: "previewBanner",
+      title: "Preview banner",
+      type: "image",
+      description: "Shown when the site is shared. Upload an image at 1200 × 630 px.",
+    }),
   ],
   preview: { prepare: () => ({ title: "Site settings" }) },
 });

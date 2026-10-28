@@ -24,13 +24,15 @@ const metaDescription = description ?? settings.description;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="light" />
     <meta name="theme-color" content="#ffffff" />
-    <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+    <link rel="icon" href={settings.favicon?.src ?? "/icon.svg"} />
     <link rel="apple-touch-icon" href="/apple-icon.png" />
     <link rel="preload" href="/fonts/InterDisplay-Regular-latin.woff2" as="font" type="font/woff2" crossorigin />
     <title>{pageTitle}</title>
     <meta property="og:title" content={pageTitle} />
     <meta property="og:site_name" content={siteTitle} />
     <meta property="og:type" content="website" />
+    {settings.previewBanner ? <meta property="og:image" content={settings.previewBanner.src} /> : null}
+    {settings.previewBanner ? <meta name="twitter:card" content="summary_large_image" /> : null}
     {metaDescription ? <meta name="description" content={metaDescription} /> : null}
     {metaDescription ? <meta property="og:description" content={metaDescription} /> : null}
   </head>

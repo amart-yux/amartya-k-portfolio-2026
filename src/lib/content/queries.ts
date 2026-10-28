@@ -134,8 +134,18 @@ export async function getHome(): Promise<HomePage> {
 }
 
 export async function getSiteSettings(): Promise<SiteSettings> {
-  const doc = await query<{ title?: string | null; description?: string | null }>(
-    `*[_id == "siteSettings"][0]{ title, description }`,
+  const doc = await query<{
+    title?: string | null;
+    description?: string | null;
+    favicon?: SanityMedia | null;
+    previewBanner?: SanityMedia | null;
+  }>(
+    `*[_id == "siteSettings"][0]{ title, description, favicon${IMAGE}, previewBanner${IMAGE} }`,
   );
-  return { title: doc?.title || undefined, description: doc?.description || undefined };
+  return {
+    title: doc?.title || undefined,
+    description: doc?.description || undefined,
+    favicon: toImage(doc?.favicon, "Favicon"),
+    previewBanner: toImage(doc?.previewBanner, "Site preview banner"),
+  };
 }
