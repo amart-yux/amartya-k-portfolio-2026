@@ -14,7 +14,7 @@ const CATEGORY_FIELDS = `_id, title, "slug": slug.current`;
 
 const WORK_FIELDS = `_id, "slug": slug.current, title, workedWith, period, liveUrl, linkPlaceholder,
   about, keywords, banner${IMAGE}, preview${IMAGE}, gallery[]${GALLERY_ITEM},
-  "categories": categories[]->{ ${CATEGORY_FIELDS} }[defined(slug)] | order(title asc)`;
+  "categories": categories[]->{ ${CATEGORY_FIELDS} } | order(title asc)`;
 
 type CategoryDoc = { _id: string; title?: string | null; slug?: string | null };
 
