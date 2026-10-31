@@ -83,7 +83,8 @@ export async function getCategories(): Promise<Category[]> {
 
 export async function getWorks(): Promise<Work[]> {
   const docs = await query<WorkDoc[]>(
-    `*[_type == "work" && defined(slug.current)] | order(sortOrder asc, _createdAt asc){ ${WORK_FIELDS} }`,
+    `*[_type == "work" && defined(slug.current) && showOnPortfolio != false]
+      | order(sortOrder asc, _createdAt asc){ ${WORK_FIELDS} }`,
   );
   return (docs ?? []).map(toWork);
 }
@@ -98,7 +99,7 @@ export async function getWork(slug: string): Promise<Work | null> {
 /** Home-page strip, grouped by parent work in the works order. */
 export async function getSubworks(): Promise<Subwork[]> {
   const docs = await query<SubworkDoc[]>(
-    `*[_type == "subwork" && defined(parentWork->slug.current)]
+    `*[_type == "subwork" && defined(parentWork->slug.current) && parentWork->showOnPortfolio != false]
       | order(parentWork->sortOrder asc, title asc){
         _id, title, "parentSlug": parentWork->slug.current,
         "categorySlugs": categories[]->slug.current, banner${IMAGE}, preview${IMAGE} }`,

@@ -105,7 +105,7 @@ pnpm dlx vercel --prod # production deployment
 2. The menu on the left matches the site:
    - **Home:** intro text and contact email
    - **About:** bio and gallery
-   - **Works:** the projects, listed on the home page in **Position** order. Each has a title, categories, Worked With (hidden when empty), year, live link and link label, description, keywords, a banner, a **preview** image (shown on hover in the work list) and a gallery.
+   - **Works:** the projects, listed on the home page in **Position** order. Each has a title, a **Show on Portfolio** toggle (on by default; off hides the Work and its Subworks from the home page without unpublishing it), categories, Worked With (hidden when empty), year, live link and link label, description, keywords, a banner, a **preview** image (shown on hover in the work list) and a gallery.
 - **Subworks:** the tiles in the strip at the bottom of the home page. Each has a **Parent Work** (the page it opens), one or more categories (used by the filter), a **Banner** (the tile image) and an optional **Preview** (shown on hover).
 - **Categories:** the filter options on the home page (Identity, Media, ...). Add, rename or remove them here.
 3. Make your changes and click **Publish**.

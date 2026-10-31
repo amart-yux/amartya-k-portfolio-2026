@@ -22,6 +22,12 @@ export const work = defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
+      name: "showOnPortfolio",
+      title: "Show on Portfolio",
+      type: "boolean",
+      initialValue: true,
+    }),
+    defineField({
       name: "sortOrder",
       title: "Position",
       type: "number",
