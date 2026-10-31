@@ -48,8 +48,8 @@ export type Work = {
   keywords: string;
   liveUrl?: string;
   linkLabel?: string;
-  banner?: ImageSource;
-  preview?: ImageSource;
+  banner?: MediaSource;
+  preview?: MediaSource;
   gallery: MediaSource[];
 };
 
@@ -59,8 +59,8 @@ export type Subwork = {
   title: string;
   parentSlug: string;
   categorySlugs: string[];
-  banner?: ImageSource;
-  preview?: ImageSource;
+  banner?: MediaSource;
+  preview?: MediaSource;
 };
 
 export type AboutPage = {

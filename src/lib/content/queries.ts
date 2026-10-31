@@ -5,6 +5,11 @@ import type { AboutPage, Category, HomePage, MediaSource, RichText, SiteSettings
 const IMAGE = `{ alt, "url": asset->url, "mimeType": asset->mimeType,
   "width": asset->metadata.dimensions.width, "height": asset->metadata.dimensions.height }`;
 
+const MEDIA = `{ _type, alt, "url": coalesce(asset->url, file.asset->url),
+  "mimeType": coalesce(asset->mimeType, file.asset->mimeType),
+  "width": coalesce(asset->metadata.dimensions.width, file.asset->metadata.dimensions.width),
+  "height": coalesce(asset->metadata.dimensions.height, file.asset->metadata.dimensions.height) }`;
+
 const GALLERY_ITEM = `{ _type, alt,
   "url": coalesce(asset->url, file.asset->url),
   "mimeType": coalesce(asset->mimeType, file.asset->mimeType),
@@ -13,7 +18,7 @@ const GALLERY_ITEM = `{ _type, alt,
 const CATEGORY_FIELDS = `_id, title, "slug": slug.current`;
 
 const WORK_FIELDS = `_id, "slug": slug.current, title, workedWith, period, liveUrl, linkPlaceholder,
-  about, keywords, banner${IMAGE}, preview${IMAGE}, gallery[]${GALLERY_ITEM},
+  about, keywords, banner${MEDIA}, preview${MEDIA}, gallery[]${GALLERY_ITEM},
   "categories": categories[]->{ ${CATEGORY_FIELDS} } | order(title asc)`;
 
 type CategoryDoc = { _id: string; title?: string | null; slug?: string | null };
@@ -68,8 +73,8 @@ function toWork(doc: WorkDoc): Work {
     keywords: doc.keywords ?? "",
     liveUrl: doc.liveUrl || undefined,
     linkLabel: doc.linkPlaceholder || undefined,
-    banner: toImage(doc.banner, `${name} banner`),
-    preview: toImage(doc.preview, `${name} preview`),
+    banner: doc.banner ? toMedia(doc.banner) : undefined,
+    preview: doc.preview ? toMedia(doc.preview) : undefined,
     gallery: (doc.gallery ?? []).map(toMedia).filter((item): item is MediaSource => item !== undefined),
   };
 }
@@ -102,7 +107,7 @@ export async function getSubworks(): Promise<Subwork[]> {
     `*[_type == "subwork" && defined(parentWork->slug.current) && parentWork->showOnPortfolio != false]
       | order(parentWork->sortOrder asc, title asc){
         _id, title, "parentSlug": parentWork->slug.current,
-        "categorySlugs": categories[]->slug.current, banner${IMAGE}, preview${IMAGE} }`,
+        "categorySlugs": categories[]->slug.current, banner${MEDIA}, preview${MEDIA} }`,
   );
   return (docs ?? []).map((doc) => {
     const title = doc.title ?? "";
@@ -111,8 +116,8 @@ export async function getSubworks(): Promise<Subwork[]> {
       title,
       parentSlug: doc.parentSlug,
       categorySlugs: (doc.categorySlugs ?? []).filter((slug): slug is string => Boolean(slug)),
-      banner: toImage(doc.banner, title),
-      preview: toImage(doc.preview, `${title} preview`),
+      banner: doc.banner ? toMedia(doc.banner) : undefined,
+      preview: doc.preview ? toMedia(doc.preview) : undefined,
     };
   });
 }

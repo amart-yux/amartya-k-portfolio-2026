@@ -59,13 +59,15 @@ export const work = defineType({
     defineField({
       name: "banner",
       title: "Banner",
-      type: "image",
+      type: "file",
+      options: { accept: "image/*,video/*" },
       fields: [altField],
     }),
     defineField({
       name: "preview",
       title: "Preview",
-      type: "image",
+      type: "file",
+      options: { accept: "image/*,video/*" },
       description: "Shown in the centre of the home page while this work is hovered.",
       fields: [altField],
     }),

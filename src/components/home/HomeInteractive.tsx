@@ -1,7 +1,7 @@
 import { useEffect, useState, type MouseEvent, type ReactNode } from "react";
-import type { Category, ImageSource, Subwork } from "@/lib/content/types";
+import type { Category, MediaSource, Subwork } from "@/lib/content/types";
 
-export type HomeWork = { slug: string; name: string; preview?: ImageSource };
+export type HomeWork = { slug: string; name: string; preview?: MediaSource };
 
 type HomeInteractiveProps = {
   works: HomeWork[];
@@ -22,7 +22,7 @@ const PARAM = "category";
  * narrows the Subworks strip. No category selected shows every Subwork.
  */
 export function HomeInteractive({ works, subworks, categories, initialCategory, intro }: HomeInteractiveProps) {
-  const [preview, setPreview] = useState<ImageSource | undefined>();
+  const [preview, setPreview] = useState<MediaSource | undefined>();
   const [active, setActive] = useState<string | undefined>(initialCategory);
 
   useEffect(() => {
@@ -46,10 +46,10 @@ export function HomeInteractive({ works, subworks, categories, initialCategory, 
     window.history.replaceState(null, "", window.location.pathname);
   };
 
-  const hoverHandlers = (image: ImageSource | undefined) => ({
-    onMouseEnter: () => setPreview(image),
+  const hoverHandlers = (media: MediaSource | undefined) => ({
+    onMouseEnter: () => setPreview(media),
     onMouseLeave: () => setPreview(undefined),
-    onFocus: () => setPreview(image),
+    onFocus: () => setPreview(media),
     onBlur: () => setPreview(undefined),
   });
 
@@ -129,13 +129,25 @@ export function HomeInteractive({ works, subworks, categories, initialCategory, 
               {...hoverHandlers(subwork.preview)}
             >
               {subwork.banner ? (
-                <img
-                  src={subwork.banner.src}
-                  alt=""
-                  loading="lazy"
-                  decoding="async"
-                  className="block size-full object-cover object-center"
-                />
+                subwork.banner.kind === "video" ? (
+                  <video
+                    src={subwork.banner.src}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    aria-label={subwork.banner.alt}
+                    className="block size-full object-cover object-center"
+                  />
+                ) : (
+                  <img
+                    src={subwork.banner.src}
+                    alt=""
+                    loading="lazy"
+                    decoding="async"
+                    className="block size-full object-cover object-center"
+                  />
+                )
               ) : (
                 <span aria-hidden="true" className="image-placeholder absolute inset-0" />
               )}
@@ -146,14 +158,18 @@ export function HomeInteractive({ works, subworks, categories, initialCategory, 
 
       <div aria-hidden="true" className="pointer-events-none absolute left-1/2 top-[38%] hidden w-[33%] -translate-x-1/2 -translate-y-1/2 desktop:block">
         {preview ? (
-          <img
-            src={preview.src}
-            alt=""
-            loading="eager"
-            fetchPriority="high"
-            decoding="async"
-            className="block h-auto w-full object-cover"
-          />
+          preview.kind === "video" ? (
+            <video src={preview.src} autoPlay loop muted playsInline className="block h-auto w-full object-cover" />
+          ) : (
+            <img
+              src={preview.src}
+              alt=""
+              loading="eager"
+              fetchPriority="high"
+              decoding="async"
+              className="block h-auto w-full object-cover"
+            />
+          )
         ) : null}
       </div>
     </>

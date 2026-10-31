@@ -24,7 +24,7 @@ export function toImage(media: SanityMedia | null | undefined, altFallback = "")
 }
 
 export function toMedia(item: SanityMedia): MediaSource | undefined {
-  if (item._type !== VIDEO_TYPE) return toImage(item);
+  if (item._type !== VIDEO_TYPE && !item.mimeType?.startsWith("video/")) return toImage(item);
   if (!item.url) return undefined;
   return { kind: "video", src: item.url, mimeType: item.mimeType ?? undefined, alt: item.alt ?? "" };
 }

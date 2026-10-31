@@ -34,14 +34,16 @@ export const subwork = defineType({
     defineField({
       name: "banner",
       title: "Banner",
-      type: "image",
+      type: "file",
+      options: { accept: "image/*,video/*" },
       description: "The tile image in the strip at the bottom of the home page.",
       fields: [altField],
     }),
     defineField({
       name: "preview",
       title: "Preview",
-      type: "image",
+      type: "file",
+      options: { accept: "image/*,video/*" },
       description: "Shown in the centre of the home page while this tile is hovered. Leave empty for no preview.",
       fields: [altField],
     }),
