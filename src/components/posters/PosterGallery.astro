@@ -40,16 +40,8 @@ const { posters } = Astro.props;
       const card = event.target.closest<HTMLButtonElement>(".poster-card");
       if (!card || !gallery.contains(card)) return;
 
-      const wasActive = card.classList.contains("is-active");
-      gallery.querySelectorAll<HTMLButtonElement>(".poster-card.is-active").forEach((activeCard) => {
-        activeCard.classList.remove("is-active");
-        activeCard.setAttribute("aria-pressed", "false");
-      });
-
-      if (!wasActive) {
-        card.classList.add("is-active");
-        card.setAttribute("aria-pressed", "true");
-      }
+      const isActive = card.classList.toggle("is-active");
+      card.setAttribute("aria-pressed", String(isActive));
     });
   });
 </script>
@@ -72,13 +64,11 @@ const { posters } = Astro.props;
   }
 
   @media (hover: hover) and (pointer: fine) {
-    .poster-card:hover .poster-default,
-    .poster-card:focus-visible .poster-default {
+    .poster-card:hover .poster-default {
       opacity: 0;
     }
 
-    .poster-card:hover .poster-hover,
-    .poster-card:focus-visible .poster-hover {
+    .poster-card:hover .poster-hover {
       opacity: 1;
     }
   }
