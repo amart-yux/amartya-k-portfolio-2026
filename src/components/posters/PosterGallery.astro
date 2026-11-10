@@ -8,24 +8,78 @@ interface Props {
 const { posters } = Astro.props;
 ---
 
-<div class="grid w-full grid-cols-1 gap-3 tablet:grid-cols-3 tablet:gap-4">
+<div class="poster-gallery grid w-full grid-cols-1 gap-3 tablet:grid-cols-3 tablet:gap-4">
   {
     posters.map((poster, index) => (
-      <figure
-        class="group relative m-0 w-full overflow-clip focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
-        tabindex="0"
-        aria-label={`Poster ${poster.number}`}
+      <button
+        type="button"
+        class="poster-card group relative m-0 block w-full cursor-pointer appearance-none overflow-clip border-0 bg-transparent p-0 text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+        aria-label={`Toggle mockup for poster ${poster.number}`}
+        aria-pressed="false"
       >
         <ContentImage
           image={poster.defaultImage}
           priority={index === 0}
-          class="h-auto w-full transition-opacity duration-300 group-hover:opacity-0 group-focus-visible:opacity-0"
+          class="poster-default h-auto w-full"
         />
         <ContentImage
           image={poster.hoverImage}
-          class="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100"
+          class="poster-hover absolute inset-0 h-full w-full object-cover"
         />
-      </figure>
+      </button>
     ))
   }
 </div>
+
+<script>
+  document.querySelectorAll<HTMLElement>(".poster-gallery").forEach((gallery) => {
+    gallery.addEventListener("click", (event) => {
+      if (!window.matchMedia("(hover: none), (pointer: coarse)").matches) return;
+      if (!(event.target instanceof Element)) return;
+
+      const card = event.target.closest<HTMLButtonElement>(".poster-card");
+      if (!card || !gallery.contains(card)) return;
+
+      const wasActive = card.classList.contains("is-active");
+      gallery.querySelectorAll<HTMLButtonElement>(".poster-card.is-active").forEach((activeCard) => {
+        activeCard.classList.remove("is-active");
+        activeCard.setAttribute("aria-pressed", "false");
+      });
+
+      if (!wasActive) {
+        card.classList.add("is-active");
+        card.setAttribute("aria-pressed", "true");
+      }
+    });
+  });
+</script>
+
+<style>
+  .poster-card img {
+    transition: opacity 300ms;
+  }
+
+  .poster-hover {
+    opacity: 0;
+  }
+
+  .poster-card.is-active .poster-default {
+    opacity: 0;
+  }
+
+  .poster-card.is-active .poster-hover {
+    opacity: 1;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .poster-card:hover .poster-default,
+    .poster-card:focus-visible .poster-default {
+      opacity: 0;
+    }
+
+    .poster-card:hover .poster-hover,
+    .poster-card:focus-visible .poster-hover {
+      opacity: 1;
+    }
+  }
+</style>
