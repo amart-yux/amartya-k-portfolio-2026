@@ -63,6 +63,13 @@ export type Subwork = {
   preview?: MediaSource;
 };
 
+export type Poster = {
+  id: string;
+  number: number;
+  defaultImage: ImageSource;
+  hoverImage: ImageSource;
+};
+
 export type AboutPage = {
   bio: RichText;
   /** `null` cells are intentional blanks in the two-column grid. */

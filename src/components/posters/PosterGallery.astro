@@ -1,0 +1,31 @@
+---
+import ContentImage from "@/components/shared/ContentImage.astro";
+import type { Poster } from "@/lib/content/types";
+
+interface Props {
+  posters: Poster[];
+}
+const { posters } = Astro.props;
+---
+
+<div class="grid w-full grid-cols-1 gap-3 tablet:grid-cols-3 tablet:gap-4">
+  {
+    posters.map((poster, index) => (
+      <figure
+        class="group relative m-0 w-full overflow-clip focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+        tabindex="0"
+        aria-label={`Poster ${poster.number}`}
+      >
+        <ContentImage
+          image={poster.defaultImage}
+          priority={index === 0}
+          class="h-auto w-full transition-opacity duration-300 group-hover:opacity-0 group-focus-visible:opacity-0"
+        />
+        <ContentImage
+          image={poster.hoverImage}
+          class="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100"
+        />
+      </figure>
+    ))
+  }
+</div>

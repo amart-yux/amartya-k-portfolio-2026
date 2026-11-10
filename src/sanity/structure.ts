@@ -15,6 +15,7 @@ export const structure: StructureResolver = (S) =>
     .items([
       S.documentTypeListItem("work").title("Works"),
       S.documentTypeListItem("subwork").title("Subworks"),
+      S.documentTypeListItem("poster").title("Posters"),
       S.documentTypeListItem("category").title("Categories"),
       S.divider(),
       ...SINGLETONS.map(({ id, type, title }) =>

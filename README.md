@@ -107,6 +107,7 @@ pnpm dlx vercel --prod # production deployment
    - **About:** bio and gallery
    - **Works:** the projects, listed on the home page in **Position** order. Each has a title, a **Show on Portfolio** toggle (on by default; off hides the Work and its Subworks from the home page without unpublishing it), categories, Worked With (hidden when empty), year, live link and link label, description, keywords, a **Banner**, a **Preview** (shown on hover in the work list) and a gallery. Banners and previews accept image and video files.
 - **Subworks:** the tiles in the strip at the bottom of the home page. Each has a **Parent Work** (the page it opens), one or more categories (used by the filter), a **Banner** and an optional **Preview** (shown on hover). Banners and previews accept image and video files.
+- **Posters:** the images on `/posters`, ordered by **Number**. Each poster needs a number, a **Default image**, and a **Hover image**; alt text is optional.
 - **Categories:** the filter options on the home page (Identity, Media, ...). Add, rename or remove them here.
 3. Make your changes and click **Publish**.
 
@@ -118,12 +119,12 @@ The live site updates right away, with no redeploy. Drafts stay hidden until you
 
 ```
 src/
-  pages/              Site routes (home, about, works/[slug])
+  pages/              Site routes (home, about, posters, works/[slug])
   components/         UI components
   layouts/            Page layout
   lib/content/        Sanity queries and data mapping
   sanity/             Sanity client, env, Studio structure and schema
-    schemaTypes/      Content types (work, home, about, rich text)
+    schemaTypes/      Content types (work, subwork, poster, home, about, rich text)
 sanity.config.ts      Studio configuration (served at /studio)
 sanity.cli.ts         Sanity CLI configuration
 scripts/

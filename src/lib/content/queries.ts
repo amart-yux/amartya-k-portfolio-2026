@@ -1,6 +1,6 @@
 import { client } from "@/sanity/client";
 import { toImage, toMedia, type SanityMedia } from "./media";
-import type { AboutPage, Category, HomePage, MediaSource, RichText, SiteSettings, Subwork, Work } from "./types";
+import type { AboutPage, Category, HomePage, MediaSource, Poster, RichText, SiteSettings, Subwork, Work } from "./types";
 
 const IMAGE = `{ alt, "url": asset->url, "mimeType": asset->mimeType,
   "width": asset->metadata.dimensions.width, "height": asset->metadata.dimensions.height }`;
@@ -46,6 +46,13 @@ type SubworkDoc = {
   categorySlugs?: (string | null)[] | null;
   banner?: SanityMedia | null;
   preview?: SanityMedia | null;
+};
+
+type PosterDoc = {
+  _id: string;
+  number: number;
+  defaultImage?: SanityMedia | null;
+  hoverImage?: SanityMedia | null;
 };
 
 /** Returns `null` while no Sanity project is configured. */
@@ -119,6 +126,19 @@ export async function getSubworks(): Promise<Subwork[]> {
       banner: doc.banner ? toMedia(doc.banner) : undefined,
       preview: doc.preview ? toMedia(doc.preview) : undefined,
     };
+  });
+}
+
+export async function getPosters(): Promise<Poster[]> {
+  const docs = await query<PosterDoc[]>(
+    `*[_type == "poster" && defined(number)] | order(number asc, _createdAt asc){
+      _id, number, defaultImage${IMAGE}, hoverImage${IMAGE} }`,
+  );
+  return (docs ?? []).flatMap((doc) => {
+    const defaultImage = toImage(doc.defaultImage, `Poster ${doc.number}`);
+    const hoverImage = toImage(doc.hoverImage, `Poster ${doc.number}, alternate view`);
+    if (!defaultImage || !hoverImage) return [];
+    return [{ id: doc._id, number: doc.number, defaultImage, hoverImage }];
   });
 }
 

@@ -1,0 +1,16 @@
+---
+import Base from "@/layouts/Base.astro";
+import CloseLink from "@/components/shared/CloseLink.astro";
+import PageFrame from "@/components/shared/PageFrame.astro";
+import PosterGallery from "@/components/posters/PosterGallery.astro";
+import { getPosters } from "@/lib/content/queries";
+
+const posters = await getPosters();
+---
+
+<Base title="Posters">
+  <PageFrame class="mx-auto w-full max-w-[1440px]">
+    <CloseLink href="/about" class="fixed right-3 top-3 z-10 tablet:right-4 tablet:top-4" />
+    <PosterGallery posters={posters} />
+  </PageFrame>
+</Base>
