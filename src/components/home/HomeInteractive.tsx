@@ -64,7 +64,7 @@ export function HomeInteractive({ works, subworks, categories, initialCategory, 
           <div className="flex w-full items-start justify-between gap-3 overflow-clip tablet:w-auto tablet:flex-[1_0_0px] tablet:justify-center tablet:gap-4">
             <div className="flex flex-[1_0_0px] items-start gap-1 overflow-clip">
               <p className="type-body shrink-0 text-muted-foreground">Selected work:</p>
-              <ul className="grid flex-[1_0_0px] grid-cols-[repeat(2,minmax(50px,1fr))] gap-x-3 tablet:flex tablet:flex-col">
+              <ul className="grid flex-[1_0_0px] grid-cols-[repeat(1,minmax(50px,1fr))] gap-x-3 tablet:flex tablet:flex-col">
                 {works.map((work) => (
                   <li key={work.slug} className="flex">
                     <a href={`/works/${work.slug}`} className="flex items-center" {...hoverHandlers(work.preview)}>
