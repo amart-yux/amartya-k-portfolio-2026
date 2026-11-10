@@ -8,68 +8,24 @@ interface Props {
 const { posters } = Astro.props;
 ---
 
-<div class="poster-gallery grid w-full grid-cols-1 gap-3 tablet:grid-cols-3 tablet:gap-4">
+<div class="grid w-full grid-cols-1 gap-3 tablet:grid-cols-3 tablet:gap-4">
   {
     posters.map((poster, index) => (
-      <button
-        type="button"
-        class="poster-card group relative m-0 block w-full cursor-pointer appearance-none overflow-clip border-0 bg-transparent p-0 text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
-        aria-label={`Toggle mockup for poster ${poster.number}`}
-        aria-pressed="false"
+      <figure
+        class="group relative m-0 w-full overflow-clip focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+        tabindex="0"
+        aria-label={`Poster ${poster.number}`}
       >
         <ContentImage
           image={poster.defaultImage}
           priority={index === 0}
-          class="poster-default h-auto w-full"
+          class="h-auto w-full transition-opacity duration-300 group-hover:opacity-0 group-focus-visible:opacity-0"
         />
         <ContentImage
           image={poster.hoverImage}
-          class="poster-hover absolute inset-0 h-full w-full object-cover"
+          class="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100"
         />
-      </button>
+      </figure>
     ))
   }
 </div>
-
-<script>
-  document.querySelectorAll<HTMLElement>(".poster-gallery").forEach((gallery) => {
-    gallery.addEventListener("click", (event) => {
-      if (!window.matchMedia("(hover: none), (pointer: coarse)").matches) return;
-      if (!(event.target instanceof Element)) return;
-
-      const card = event.target.closest<HTMLButtonElement>(".poster-card");
-      if (!card || !gallery.contains(card)) return;
-
-      const isActive = card.classList.toggle("is-active");
-      card.setAttribute("aria-pressed", String(isActive));
-    });
-  });
-</script>
-
-<style>
-  .poster-card img {
-    transition: opacity 300ms;
-  }
-
-  .poster-hover {
-    opacity: 0;
-  }
-
-  .poster-card.is-active .poster-default {
-    opacity: 0;
-  }
-
-  .poster-card.is-active .poster-hover {
-    opacity: 1;
-  }
-
-  @media (hover: hover) and (pointer: fine) {
-    .poster-card:hover .poster-default {
-      opacity: 0;
-    }
-
-    .poster-card:hover .poster-hover {
-      opacity: 1;
-    }
-  }
-</style>
