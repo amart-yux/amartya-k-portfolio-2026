@@ -9,8 +9,14 @@ const posters = await getPosters();
 ---
 
 <Base title="Posters">
-  <PageFrame class="mx-auto w-full bg-[#f9f9f9]">
+  <PageFrame class="posters-page mx-auto w-full">
     <CloseLink href="/about" class="fixed right-3 top-3 z-10 tablet:right-4 tablet:top-4" />
     <PosterGallery posters={posters} />
   </PageFrame>
 </Base>
+
+<style>
+  :global(main.posters-page) {
+    background-color: #f9f9f9;
+  }
+</style>
