@@ -65,6 +65,22 @@
           "type": "string"
         },
         {
+          "slug": "nos_team",
+          "label": "Nos Team",
+          "type": "string"
+        },
+        {
+          "slug": "client_team",
+          "label": "Client Team",
+          "type": "string"
+        },
+        {
+          "slug": "show_team",
+          "label": "Show Team Section",
+          "type": "boolean",
+          "initial": false
+        },
+        {
           "slug": "period",
           "label": "When",
           "type": "string",
@@ -1649,6 +1665,9 @@
             "space"
           ],
           "worked_with": "Not On Sunday",
+          "nos_team": "Suraj, Anjali, Jai, Gauri, Praful",
+          "client_team": "Ananya, RVT",
+          "show_team": true,
           "period": "2026 - Completed",
           "live_url": null,
           "about": [],

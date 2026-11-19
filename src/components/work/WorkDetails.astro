@@ -1,5 +1,6 @@
 ---
 import LabeledField from "@/components/shared/LabeledField.astro";
+import MutedText from "@/components/shared/MutedText.astro";
 import RichText from "@/components/shared/RichText.astro";
 import Text from "@/components/shared/Text.astro";
 import type { Work } from "@/lib/content/types";
@@ -11,46 +12,60 @@ interface Props {
 const { work } = Astro.props;
 ---
 
-<aside class="flex w-full shrink-0 flex-col items-start gap-3 overflow-clip tablet:sticky tablet:top-4 tablet:w-[32%] tablet:gap-4 desktop:w-[32.5%]">
-  <div class="flex w-full items-start gap-3 overflow-clip tablet:gap-4">
-    <LabeledField label="Work:" class="flex-[1_0_0px]">
-      <Text>{work.name}</Text>
-    </LabeledField>
-    <LabeledField label="Category:" class="flex-[1_0_0px]">
-      {work.categories.map((category) => <Text>{category.title}</Text>)}
-    </LabeledField>
-  </div>
+<aside class="flex w-full shrink-0 flex-col items-start gap-3 overflow-clip tablet:sticky tablet:top-4 tablet:h-[96vh] tablet:w-[32%] tablet:justify-between desktop:w-[32.5%]">
+  <div class="flex w-full flex-col items-start gap-4 overflow-clip">
+    <div class="flex w-full items-start gap-3 overflow-clip tablet:gap-4">
+      <LabeledField label="Work:" class="flex-[1_0_0px]" stackOnPhone>
+        <Text>{work.name}</Text>
+      </LabeledField>
+      <LabeledField label="Category:" class="flex-[1_0_0px]" stackOnPhone>
+        {work.categories.map((category) => <Text>{category.title}</Text>)}
+      </LabeledField>
+    </div>
 
-  <div class="flex w-full items-start gap-3 overflow-clip tablet:gap-4">
+    <div class="flex w-full items-start gap-3 overflow-clip tablet:gap-4">
+      {
+        work.workedWith ? (
+          <LabeledField label="Worked With:" class="flex-[1_0_0px]" stackOnPhone>
+            <Text>{work.workedWith}</Text>
+          </LabeledField>
+        ) : null
+      }
+      <LabeledField label="When:" class="flex-[1_0_0px]" stackOnPhone>
+        <Text>{work.when}</Text>
+      </LabeledField>
+    </div>
+
+    <LabeledField label="About:" stackOnPhone>
+      <RichText content={work.about} />
+    </LabeledField>
+
+    <LabeledField label="Keywords:" stackOnPhone>
+      <Text>{work.keywords}</Text>
+    </LabeledField>
+
     {
-      work.workedWith ? (
-        <LabeledField label="Worked With:" class="flex-[1_0_0px]">
-          <Text>{work.workedWith}</Text>
+      work.liveUrl ? (
+        <LabeledField label="Live Project" stackOnPhone>
+          <Text>
+            <a href={work.liveUrl} target="_blank" rel="noreferrer" class="type-inline-link">
+              {work.linkLabel ?? work.liveUrl}
+            </a>
+          </Text>
         </LabeledField>
       ) : null
     }
-    <LabeledField label="When:" class="flex-[1_0_0px]">
-      <Text>{work.when}</Text>
-    </LabeledField>
   </div>
 
-  <LabeledField label="About:">
-    <RichText content={work.about} />
-  </LabeledField>
-
-  <LabeledField label="Keywords:">
-    <Text>{work.keywords}</Text>
-  </LabeledField>
-
   {
-    work.liveUrl ? (
-      <LabeledField label="Live Project">
-        <Text>
-          <a href={work.liveUrl} target="_blank" rel="noreferrer" class="type-inline-link">
-            {work.linkLabel ?? work.liveUrl}
-          </a>
-        </Text>
-      </LabeledField>
+    work.showTeam ? (
+      <div class="flex w-full flex-col items-start gap-0 overflow-clip">
+        <MutedText>Team:</MutedText>
+        <div class="flex w-full flex-col gap-0">
+          {work.nosTeam ? <Text>{work.workedWith ? `${work.workedWith}: ` : ""}{work.nosTeam}</Text> : null}
+          {work.clientTeam ? <Text>{work.name}: {work.clientTeam}</Text> : null}
+        </div>
+      </div>
     ) : null
   }
 </aside>

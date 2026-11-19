@@ -8,11 +8,14 @@ import MutedText from "./MutedText.astro";
 interface Props {
   label: string;
   class?: string;
+  stackOnPhone?: boolean;
 }
-const { label, class: className } = Astro.props;
+const { label, class: className, stackOnPhone = false } = Astro.props;
 ---
 
-<div class:list={["flex w-full items-start gap-1 overflow-clip", className]}>
+<div class:list={["flex w-full items-start gap-1 overflow-clip", stackOnPhone && "flex-col tablet:flex-row", className]}>
   <MutedText>{label}</MutedText>
-  <div class="flex flex-[1_0_0px] flex-col"><slot /></div>
+  <div class:list={["flex flex-col", stackOnPhone ? "w-full tablet:w-auto tablet:flex-[1_0_0px]" : "flex-[1_0_0px]"]}>
+    <slot />
+  </div>
 </div>

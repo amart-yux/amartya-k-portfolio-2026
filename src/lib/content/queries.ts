@@ -17,7 +17,7 @@ const GALLERY_ITEM = `{ _type, alt,
 
 const CATEGORY_FIELDS = `_id, title, "slug": slug.current`;
 
-const WORK_FIELDS = `_id, "slug": slug.current, title, workedWith, period, liveUrl, linkPlaceholder,
+const WORK_FIELDS = `_id, "slug": slug.current, title, workedWith, nosTeam, clientTeam, showTeam, period, liveUrl, linkPlaceholder,
   about, keywords, banner${MEDIA}, preview${MEDIA}, gallery[]${GALLERY_ITEM},
   "categories": categories[]->{ ${CATEGORY_FIELDS} } | order(title asc)`;
 
@@ -29,6 +29,9 @@ type WorkDoc = {
   title?: string | null;
   categories?: CategoryDoc[] | null;
   workedWith?: string | null;
+  nosTeam?: string | null;
+  clientTeam?: string | null;
+  showTeam?: boolean | null;
   period?: string | null;
   liveUrl?: string | null;
   linkPlaceholder?: string | null;
@@ -75,6 +78,9 @@ function toWork(doc: WorkDoc): Work {
       .filter((category): category is CategoryDoc => Boolean(category?.slug))
       .map(toCategory),
     workedWith: doc.workedWith ?? "",
+    nosTeam: doc.nosTeam ?? "",
+    clientTeam: doc.clientTeam ?? "",
+    showTeam: doc.showTeam ?? false,
     when: doc.period ?? "",
     about: doc.about ?? [],
     keywords: doc.keywords ?? "",

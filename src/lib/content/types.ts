@@ -43,6 +43,9 @@ export type Work = {
   name: string;
   categories: Category[];
   workedWith: string;
+  nosTeam: string;
+  clientTeam: string;
+  showTeam: boolean;
   when: string;
   about: RichText;
   keywords: string;

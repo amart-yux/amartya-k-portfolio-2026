@@ -140,8 +140,13 @@ for (const [index, { slug, fields }] of frWorks.entries()) {
     sortOrder: index + 1,
     categories: categoryRefs(fields.Categories),
   };
+  if (!workIds.has(slug)) {
+    set.showTeam = Boolean(clean(fields["Nos Team"]) || clean(fields["Client Team"]));
+  }
   const optional = {
     workedWith: clean(fields["Worked With"]),
+    nosTeam: clean(fields["Nos Team"]),
+    clientTeam: clean(fields["Client Team"]),
     period: clean(fields.Year),
     keywords: clean(fields.Keywords),
     liveUrl: clean(fields["Project Link"]),
